@@ -1,13 +1,16 @@
 #!/bin/sh
 
-cd `dirname $0`
-rm -rf dist/
+SRC="src"
+DIST="docs"
 
-cp -r src/ dist/
+cd `dirname $0`
+rm -rf "$DIST/"
+
+cp -r "$SRC/" "$DIST/"
 
 IFS=$'\n'
 
-for file in `find -L dist/ -type f`; do
+for file in `find -L "$DIST/" -type f`; do
 	cat "$file" | tr "\n" "\f" > /tmp/bush
 	cat /tmp/bush > "$file"
 	for script in `cat "$file" | grep -o "{{[^}]*}}"`; do

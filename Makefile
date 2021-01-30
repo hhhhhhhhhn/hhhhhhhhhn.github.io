@@ -1,4 +1,4 @@
 build:
 	./build.sh
 clean:
-	rm -rf dist/*
+	rm -rf docs/*
