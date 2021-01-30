@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+
+:root {
+	--fsize: Calc(2.5vh + 1.5vw);
+}
+
+@media(max-aspect-ratio: 1/2) {
+	:root {
+		--fsize: 6vw;
+	}
+}
+
+body {
+	background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='15px'><text x='0' y='15' fill='rgb(243,243,243)' font-size='12' font-weight='700'>h</text></svg>");
+	background-repeat: repeat;
+	font-size: var(--fsize);
+	margin: 0;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 400;
+	animation-name: movebackground;
+	animation-duration: 60s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+* {
+	font-size: var(--fsize);
+}
+
+@keyframes movebackground {
+	0% {
+		background-position: 0px 0px;
+		background-size: 15px 20px;
+	}
+	25% {
+		background-position: 1000px 500px;
+		background-size: 23px 30px;
+	}
+	50% {
+		background-position: 500px -500px;
+		background-size: 15px 20px;
+	}
+	75% {
+		background-position: 1000px 500px;
+		background-size: 8px 10px;
+	}
+	100% {
+		background-position: 0px 0px;
+		background-size: 15px 20px;
+	}
+}
+
+h1, h2, h3 {
+	font-weight: 700;
+}
+
+a, a:hover, a:visited {
+	color: grey;
+}
