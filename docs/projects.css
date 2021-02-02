@@ -1,0 +1,12 @@
+#main {
+	margin: Calc(2 * var(--fsize));
+	text-align: right;
+}
+
+#projects {
+	font-size: Calc(2 * var(--fsize));
+}
+
+p {
+	font-size: Calc(var(--fsize) / 1.5);
+}
