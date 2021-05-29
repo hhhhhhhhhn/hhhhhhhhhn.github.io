@@ -16,9 +16,9 @@
 	<h1>Projects <a href="./tags.html">(By technology)</a></h1>
 	{% endif %}
 	{% for title in titles %}
-	<div class="project {{projects[title].filename}}">
+	<div class="project" id="{{projects[title].filename}}">
 		{{projects[title].html | safe}}
-		<p>Tags:
+		<p>Technologies used:
 			{% for tag in projects[title].tags %}
 			<a href="{{tag | simplify}}.html">{{tag}}</a><span>, </span>
 			{% endfor %}
