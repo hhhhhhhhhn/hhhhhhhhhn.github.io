@@ -1,4 +1,4 @@
-# hooke js
+# HookeJs
 
 plag detection in node
 

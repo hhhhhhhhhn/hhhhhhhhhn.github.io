@@ -1,0 +1,40 @@
+body {
+	margin: 5vw;
+}
+
+h1 {
+	font-size: 2em;
+	margin-top: 0;
+}
+
+h1 a {
+	font-weight: normal;
+	font-size: 0.7em;
+}
+
+.project {
+	font-size: 0.7em;
+	padding: 2vh;
+	text-align: justify;
+	text-align-last: right;
+	margin-left: 50%;
+	margin-right: 10%;
+}
+
+@media(max-aspect-ratio: 1/1) {
+	.project {
+		margin-left: 20%;
+	}
+}
+
+.project p {
+	font-size: 0.7em;
+	color: grey;
+}
+
+.project a {
+	font-size: 1em;
+}
+ .project span {
+	font-size: 0.8em;
+ }

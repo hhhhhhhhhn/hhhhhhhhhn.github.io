@@ -10,7 +10,7 @@ function main() {
 	copySync("src/", "docs/")
 	let projects = getProjects()
 	let tags = getTags(projects)
-	renderProjectIndex(projects)
+	renderProjectsIndex(projects)
 	renderTagIndex(tags)
 	renderTags(tags, projects)
 }
@@ -72,7 +72,7 @@ function renderTags(tags, projects) {
 	}
 }
 
-function renderProjectIndex(projects) {
+function renderProjectsIndex(projects) {
 	renderTemplate(
 		"src/projects/tag.temp.html",
 		`docs/projects/index.html`,
