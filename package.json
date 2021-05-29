@@ -1,0 +1,29 @@
+{
+  "name": "hhhhhhhhhn.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hhhhhhhhhn/hhhhhhhhhn.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hhhhhhhhhn/hhhhhhhhhn.github.io/issues"
+  },
+  "homepage": "https://github.com/hhhhhhhhhn/hhhhhhhhhn.github.io#readme",
+  "dependencies": {
+    "fs-extra": "^10.0.0",
+    "ls": "^0.2.1",
+    "markdown-it": "^12.0.6",
+    "nunjucks": "^3.2.3"
+  }
+}
