@@ -35,6 +35,184 @@ h1 a {
 .project a {
 	font-size: 1em;
 }
- .project span {
+
+.project span {
 	font-size: 0.8em;
- }
+}
+
+/* Cube and stuff */
+#cube-container {
+	position: fixed;
+	top: 30vh;
+	left: 15vw;
+	perspective: 600px;
+	height: 20vw;
+	width: 20vw;
+}
+
+#cube {
+	--rx: 0deg;
+	--ry: 0deg;
+	
+	--rz: 0deg;
+	--faceZ: 10vw;
+	
+	width: 100%;
+	height: 100%;
+	position: relative;
+	transform-style: preserve-3d;
+	transform: translateZ(-10vw)
+		rotateX(Calc(var(--rx) + 0deg))
+		rotateY(Calc(var(--ry) + 0deg));
+	transition: transform 2s;
+}
+
+#cube-face-container {
+	width: 100%;
+	height: 100%;
+	transform-style: preserve-3d;
+	animation-name: rotate;
+	animation-timing-function: ease;
+	animation-duration: 200s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+@keyframes rotate {
+	0% {
+		transform:
+			rotateX(Calc(var(--rx) + 0deg))
+			rotateY(Calc(var(--ry) + 0deg));
+	}
+	33% {
+		transform:
+			rotateX(Calc(var(--rx) + 360deg))
+			rotateY(Calc(var(--ry) + 180deg));
+	}
+	66% {
+		transform:
+			rotateX(Calc(var(--rx) + 150deg))
+			rotateY(Calc(var(--ry) + 450deg));
+	}
+	100% {
+		transform:
+			rotateX(Calc(var(--rx) + -100deg))
+			rotateY(Calc(var(--ry) + -50deg));
+	}
+}
+
+.cube-face {
+	position: absolute;
+	height: 20vw;
+	width: 20vw;
+	background-color: transparent;
+	border: 5px double grey;
+	transition: transform 1s;
+}
+
+#front  { transform: rotateY(  0deg) translateZ(var(--faceZ)) rotateZ(var(--rz)); }
+#right  { transform: rotateY( 90deg) translateZ(var(--faceZ)) rotateZ(var(--rz)); }
+#back   { transform: rotateY(180deg) translateZ(var(--faceZ)) rotateZ(var(--rz)); }
+#left   { transform: rotateY(-90deg) translateZ(var(--faceZ)) rotateZ(var(--rz)); }
+#top    { transform: rotateX( 90deg) translateZ(var(--faceZ)) rotateZ(var(--rz)); }
+#bottom { transform: rotateX(-90deg) translateZ(var(--faceZ)) rotateZ(var(--rz)); }
+
+/* Cube watchers */
+.watch {
+	pointer-events: auto;
+	height: 33.3%;
+	width: 33.3%;
+	position: fixed;
+	z-index: 1;
+}
+
+/*
+.watch:hover {
+	background-color: rgba(1, 1, 1, 0.5);
+} */
+
+#watch1 {
+	top: 0;
+	left: 0;
+}
+
+#watch1:hover ~ #cube {
+	--rx: 30deg;
+	--ry: -30deg;
+}
+
+#watch2 {
+	top: 0;
+	left: 33.3%;
+}
+
+#watch2:hover ~ #cube {
+	--rx: 40deg;
+}
+
+#watch3 {
+	top: 0;
+	left: 66.6%;
+}
+
+#watch3:hover ~ #cube {
+	--rx: 30deg;
+	--ry: 30deg;
+}
+
+#watch4 {
+	top: 33.3%;
+	left: 0;
+}
+
+#watch4:hover ~ #cube {
+	--ry: -30deg;
+}
+
+#watch5 {
+	top: 33.3%;
+	left: 33.3%;
+}
+
+#watch5:hover ~ #cube {
+	--faceZ: 14.25vw;
+	--rz: 135deg;
+}
+
+#watch6 {
+	top: 33.3%;
+	left: 66.6%;
+}
+
+#watch6:hover ~ #cube {
+	--ry: 30deg;
+}
+
+#watch7 {
+	top: 66.6%;
+	left: 0;
+}
+
+#watch7:hover ~ #cube {
+	--rx: -30deg;
+	--ry: -30deg;
+}
+
+#watch8 {
+	top: 66.6%;
+	left: 33.3%;
+}
+
+#watch8:hover ~ #cube {
+	--rx: -40deg;
+}
+
+#watch9 {
+	top: 66.6%;
+	left: 66.6%;
+}
+
+#watch9:hover ~ #cube {
+	--rx: -30deg;
+	--ry: 30deg;
+}

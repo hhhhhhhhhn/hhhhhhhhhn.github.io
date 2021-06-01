@@ -5,11 +5,27 @@
 	height: 100vh;
 }
 
+body {
+	overflow: hidden !important;
+}
+
 h1 {
 	font-size: Calc(2 * var(--fsize));
 	margin: 0;
 	margin-top: 0.3rem;
 	line-height: 0.6;
+	z-index: -1;
+}
+
+h1:hover:before {
+	animation-name: hhh;
+	animation-duration: 0.8s;
+	animation-timing-function: ease;
+	animation-direction: alternate;
+	animation-iteration-count: infinite;
+	animation-fill-mode: forwards;
+	animation-delay: 0.5s;
+	content: "";
 }
 
 a {
@@ -19,4 +35,71 @@ a {
 #github-container {
 	width: 100%;
 	text-align: right;
+	z-index: 10;
+}
+
+@keyframes hhh {
+	0% {
+		content: "h";
+	}
+	5% {
+		content: "hh";
+	}
+	10% {
+		content: "hhh";
+	}
+	15% {
+		content: "hhhh";
+	}
+	20% {
+		content: "hhhhh";
+	}
+	25% {
+		content: "hhhhhh";
+	}
+	30% {
+		content: "hhhhhhh";
+	}
+	35% {
+		content: "hhhhhhhh";
+	}
+	40% {
+		content: "hhhhhhhhh";
+	}
+	45% {
+		content: "hhhhhhhhhh";
+	}
+	50% {
+		content: "hhhhhhhhhhh";
+	}
+	55% {
+		content: "hhhhhhhhhhhh";
+	}
+	60% {
+		content: "hhhhhhhhhhhhh";
+	}
+	65% {
+		content: "hhhhhhhhhhhhhh";
+	}
+	70% {
+		content: "hhhhhhhhhhhhhhh";
+	}
+	75% {
+		content: "hhhhhhhhhhhhhhhh";
+	}
+	80% {
+		content: "hhhhhhhhhhhhhhhhh";
+	}
+	85% {
+		content: "hhhhhhhhhhhhhhhhhh";
+	}
+	90% {
+		content: "hhhhhhhhhhhhhhhhhhh";
+	}
+	95% {
+		content: "hhhhhhhhhhhhhhhhhhhh";
+	}
+	100% {
+		content: "hhhhhhhhhhhhhhhhhhhhh";
+	}
 }

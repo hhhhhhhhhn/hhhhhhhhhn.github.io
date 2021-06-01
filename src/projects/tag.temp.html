@@ -10,21 +10,45 @@
 </head>
 
 <body>
-	{% if tagName %}
-	<h1>Projects with {{tagName}}</h1>
-	{% else %}
-	<h1>Projects <a href="./tags.html">(By technology)</a></h1>
-	{% endif %}
-	{% for title in titles %}
-	<div class="project" id="{{projects[title].filename}}">
-		{{projects[title].html | safe}}
-		<p>Technologies used:
-			{% for tag in projects[title].tags %}
-			<a href="{{tag | simplify}}.html">{{tag}}</a><span>, </span>
-			{% endfor %}
-		</p>
+	<div id="projects">
+		{% if tagName %}
+		<h1>Projects with {{tagName}}</h1>
+		{% else %}
+		<h1>Projects <a href="./tags.html">(By technology)</a></h1>
+		{% endif %}
+		{% for title in titles %}
+		<div class="project" id="{{projects[title].filename}}">
+			{{projects[title].html | safe}}
+			<p>Technologies used:
+				{% for tag in projects[title].tags %}
+				<a href="{{tag | simplify}}.html">{{tag}}</a><span>, </span>
+				{% endfor %}
+			</p>
+		</div>
+		{% endfor %}
 	</div>
-	{% endfor %}
+
+	<div id="cube-container">
+		<div class="watch" id="watch1"></div>
+		<div class="watch" id="watch2"></div>
+		<div class="watch" id="watch3"></div>
+		<div class="watch" id="watch4"></div>
+		<div class="watch" id="watch5"></div>
+		<div class="watch" id="watch6"></div>
+		<div class="watch" id="watch7"></div>
+		<div class="watch" id="watch8"></div>
+		<div class="watch" id="watch9"></div>
+		<div id="cube">
+			<div id="cube-face-container">
+				<div class="cube-face" id="front"></div>
+				<div class="cube-face" id="back"></div>
+				<div class="cube-face" id="right"></div>
+				<div class="cube-face" id="left"></div>
+				<div class="cube-face" id="top"></div>
+				<div class="cube-face" id="bottom"></div>
+			</div>
+		</div>
+	</div>
 </body>
 
 </html>
