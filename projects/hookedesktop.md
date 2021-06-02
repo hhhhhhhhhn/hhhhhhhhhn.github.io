@@ -1,7 +1,7 @@
 # Hooke Desktop
 
-An
+An electron frontend for [HookeJs](#hookejs)
 
 You can find it [here](https://github.com/hhhhhhhhhn/HookeDesktop)
 
-Tags: Node JS, JavaScript, NLP, Electron
+Tags: Node JS, JavaScript, HTML + CSS, NLP, Electron
