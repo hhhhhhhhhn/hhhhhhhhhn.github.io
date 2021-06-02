@@ -4,7 +4,11 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% if tagName %}
 	<title>{{tagName}}</title>
+	{% else %}
+	<title>Projects</title>
+	{% endif %}
 	<link rel="stylesheet" href="../main.css">
 	<link rel="stylesheet" href="./index.css">
 </head>
