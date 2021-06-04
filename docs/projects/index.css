@@ -108,6 +108,47 @@ h1 a {
 	background-color: transparent;
 	border: 5px double grey;
 	transition: transform 1s;
+	color: transparent;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.5em;
+	text-align: center;
+	animation-name: facts;
+	animation-timing-function: ease;
+	animation-duration: 150s;
+	animation-iteration-count: 1;
+}
+
+.cube-face::after {
+	content: "";
+	animation-name: facts;
+	animation-timing-function: ease;
+	animation-duration: 150s;
+	animation-iteration-count: 1;
+}
+
+@keyframes facts {
+	25% {
+		content: "Hover over the cube to see some CSS magic!";
+		color: transparent;
+	}
+	27% {
+		color: grey;
+	}
+	29% {
+		color: transparent;
+	}
+	88% {
+		color: transparent;
+		content: "Did you know this page doesn't contain javascript? Check it!";
+	}
+	90% {
+		color: gray;
+	}
+	92% {
+		color: transparent;
+	}
 }
 
 #front  { transform: rotateY(  0deg) translateZ(var(--faceZ)) rotateZ(var(--rz)); }
