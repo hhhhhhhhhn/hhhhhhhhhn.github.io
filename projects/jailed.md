@@ -6,4 +6,4 @@ for compatibility with github pages.
 
 It is [here](https://github.com/hhhhhhhhhn/jailed)
 
-Tags: Node Js, JavaScript
+Tags: Node JS, JavaScript
