@@ -9,3 +9,4 @@ Go was chosen because of its great speed and package system.
 You can see the code [here](https://github.com/hhhhhhhhhn/hooke)
 
 Tags: Go, NLP
+50

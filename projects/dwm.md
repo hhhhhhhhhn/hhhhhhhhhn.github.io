@@ -9,3 +9,4 @@ and a workspace-like interface.
 You can find it [here](https://github.com/hhhhhhhhhn/dwm)
 
 Tags: C/C++, Linux, Shell/Bash/Zsh
+50

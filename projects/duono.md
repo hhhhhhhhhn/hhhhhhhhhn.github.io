@@ -9,3 +9,4 @@ The website is [here](https://hhhhhhhhhn.github.io/duono/),
 and the code is [here](https://github.com/hhhhhhhhhn/duono)
 
 Tags: HTML + CSS, JavaScript
+50

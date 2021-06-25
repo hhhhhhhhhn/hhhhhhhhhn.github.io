@@ -7,3 +7,4 @@ It was the center piece of my last note-taking workflow
 Here's the [repo](https://github.com/hhhhhhhhhn/mmd)
 
 Tags: Linux, Shell/Bash/Zsh, C/C++
+50

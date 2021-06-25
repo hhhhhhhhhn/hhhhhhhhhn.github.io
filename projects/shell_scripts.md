@@ -7,3 +7,4 @@ if you want to read more see the
 [README](https://github.com/hhhhhhhhhn/shell_scripts#readme)
 
 Tags: Linux, Shell/Bash/Zsh
+50

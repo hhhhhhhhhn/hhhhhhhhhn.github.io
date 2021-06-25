@@ -31,10 +31,19 @@ function parseProject(project) {
 		lines[0].replace("# ", ""),
 		{
 			filename: simplify(lines[0].replace("# ", "").toLowerCase()),
-			html:     md.render(lines.slice(0, -1).join("\n")),
-			tags:     lines.slice(-1)[0].replace("Tags: ", "").split(", ")
+			html:     md.render(lines.slice(0, -3).join("\n")),
+			tags:     lines.slice(-3)[0].replace("Tags: ", "").split(", "),
+			score:    Number(lines.slice(-2)[0])
 		}
 	]
+}
+
+function sortTitlesByScore(titles, projects) {
+	return titles.sort((title1, title2) => {
+		if (projects[title1].score > projects[title2].score)
+			return -1
+		return 1
+	})
 }
 
 function simplify(string) {
@@ -67,7 +76,11 @@ function renderTags(tags, projects) {
 		renderTemplate(
 			"src/projects/tag.temp.html",
 			`docs/projects/${simplify(tagName)}.html`,
-			{tagName, titles, projects}
+			{
+				tagName,
+				titles: sortTitlesByScore(titles, projects),
+				projects
+			}
 		)
 	}
 }
@@ -76,7 +89,11 @@ function renderProjectsIndex(projects) {
 	renderTemplate(
 		"src/projects/tag.temp.html",
 		`docs/projects/index.html`,
-		{tagName: "", titles: Object.keys(projects), projects}
+		{
+			tagName: "",
+			titles: sortTitlesByScore(Object.keys(projects), projects),
+			projects
+		}
 	)
 }
 

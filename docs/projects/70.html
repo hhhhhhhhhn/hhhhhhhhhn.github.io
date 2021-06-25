@@ -4,32 +4,34 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	{% if tagName %}
-	<title>{{tagName}}</title>
-	{% else %}
-	<title>Projects</title>
-	{% endif %}
+	
+	<title>70</title>
+	
 	<link rel="stylesheet" href="../main.css">
 	<link rel="stylesheet" href="./index.css">
 </head>
 
 <body>
 	<div id="projects">
-		{% if tagName %}
-		<h1>Projects with {{tagName}}</h1>
-		{% else %}
-		<h1>Projects <a href="./tags.html">(By technology)</a></h1>
-		{% endif %}
-		{% for title in titles %}
-		<div class="project" id="{{projects[title].filename}}">
-			{{projects[title].html | safe}}
+		
+		<h1>Projects with 70</h1>
+		
+		
+		<div class="project" id="hooke-website">
+			<h1>Hooke Website</h1>
+<p>Website frontend for HookeJs.
+sadly, it only works with CORS unlocked.
+Also, has a 5mb limit.</p>
+<p>It is <a href="https://github.com/hhhhhhhhhn/HookeWebsite">here</a></p>
+<p>Tags: JavaScript, HTML + CSS, NLP</p>
+
 			<p>Technologies used:
-				{% for tag in projects[title].tags %}
-				<a href="{{tag | simplify}}.html">{{tag}}</a><span>, </span>
-				{% endfor %}
+				
+				<a href="70.html">70</a><span>, </span>
+				
 			</p>
 		</div>
-		{% endfor %}
+		
 	</div>
 
 	<div id="cube-container">

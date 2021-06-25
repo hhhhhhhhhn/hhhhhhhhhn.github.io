@@ -6,3 +6,4 @@ Meant to be a replacement for head | tail.
 Find it [here](https://github.com/hhhhhhhhhn/pl)
 
 Tags: C/C++, Shell/Bash/Zsh, Linux
+50

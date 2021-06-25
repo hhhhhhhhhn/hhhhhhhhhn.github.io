@@ -7,3 +7,4 @@ Was made to use Spotify without the mouse.
 It is [here](https://github.com/hhhhhhhhhn/spot)
 
 Tags: Python, Selenium
+50

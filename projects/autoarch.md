@@ -9,3 +9,4 @@ You can find the main part [here](https://github.com/hhhhhhhhhn/autoarch),
 and the ISO image creator [here](https://github.com/hhhhhhhhhn/autoarchiso)
 
 Tags: Linux, Shell/Bash/Zsh
+50

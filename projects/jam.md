@@ -9,3 +9,4 @@ If you're up to the challenge, the game is [here](https://hhhhhhhhhn.github.io/j
 and the code is [here](https://github.com/hhhhhhhhhn/jam)
 
 Tags: HTML + CSS, JavaScript
+50

@@ -7,3 +7,4 @@ and have them timestamped automatically.
 [Here's](https://github.com/hhhhhhhhhn/journal) the repo.
 
 Tags: Node JS, JavaScript
+50

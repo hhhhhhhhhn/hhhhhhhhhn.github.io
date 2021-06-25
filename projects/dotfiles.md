@@ -8,3 +8,4 @@ and zsh (my preferred shell).
 You can find them [here](https://github.com/hhhhhhhhhn/.dotfiles)
 
 Tags: Vim, Shell/Bash/Zsh, Linux
+50

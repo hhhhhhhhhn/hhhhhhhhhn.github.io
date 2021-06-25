@@ -8,3 +8,4 @@ and work on [Termux](https://termux.com/) for android.
 Find it [here](https://github.com/hhhhhhhhhn/dvtm)
 
 Tags: C/C++, Android, Shell/Bash/Zsh, Linux
+50

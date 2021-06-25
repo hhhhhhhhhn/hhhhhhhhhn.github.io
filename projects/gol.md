@@ -5,3 +5,4 @@ Not much to say here.
 The code is [here](https://github.com/hhhhhhhhhn/gol)
 
 Tags: Python
+50

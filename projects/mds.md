@@ -7,3 +7,4 @@ You can the code [here](https://github.com/hhhhhhhhhn/mds),
 or see it in practice [here](https://hhhhhhhhhn.github.io/script-repo/)
 
 Tags: JavaScript, HTML + CSS
+50
