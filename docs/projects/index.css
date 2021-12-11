@@ -23,7 +23,16 @@ h1 a {
 
 @media(max-aspect-ratio: 1/1) {
 	.project {
-		margin-left: 20%;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	body {
+		margin: 10vw;
+	}
+
+	#cube-container {
+		display: none;
 	}
 }
 
@@ -120,6 +129,7 @@ h1 a {
 	animation-iteration-count: 1;
 }
 
+/*
 .cube-face::after {
 	content: "";
 	animation-name: facts;
@@ -149,7 +159,7 @@ h1 a {
 	92% {
 		color: transparent;
 	}
-}
+} */
 
 #front  { transform: rotateY(  0deg) translateZ(var(--faceZ)) rotateZ(var(--rz)); }
 #right  { transform: rotateY( 90deg) translateZ(var(--faceZ)) rotateZ(var(--rz)); }

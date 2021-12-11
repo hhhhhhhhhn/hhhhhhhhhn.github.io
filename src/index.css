@@ -38,6 +38,21 @@ a {
 	z-index: 10;
 }
 
+#bottom-corner {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	display: flex;
+	flex-direction: row;
+}
+
+#bottom-corner a {
+	font-size: Calc(0.5 * var(--fsize));
+	padding-right: 1em;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
 @keyframes hhh {
 	0% {
 		content: "h";
