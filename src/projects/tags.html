@@ -12,12 +12,49 @@
 </head>
 
 <body>
-	<h1>Technologies</h1>
-	<p>
+	<!-- <h1>Technologies</h1> -->
+	<div id="graph">
+		{% for node in nodes %}
+			<a href="{{ node.tagName | simplify }}.html">
+				<div
+					class="node"
+					id="{{node.tagName}}"
+					style="
+						--radius: Calc({{2 * Math.pow(1.03, node.titles.length)}} * var(--fsize));
+						width: var(--radius);
+						height: var(--radius);
+						left: Calc(Calc(Calc({{node.x * 100}}vw - Calc(var(--radius) / 2)) * 0.8) + 10vw);
+						top: Calc(Calc(Calc({{node.y * 100}}vh - Calc(var(--radius) / 2)) * 0.8) + 10vh);
+						font-size: Calc(var(--radius) / 7);
+						"
+				>{{node.tagName.replace("/", "/ ")}}</div>
+			</a>
+		{% endfor %}
+	<div>
+	<!--<p>
 		{% for tag, value in tags %}
 		<a href="{{ tag | simplify }}.html">{{ tag }}</a><span>, </span>
 		{% endfor %}
-	</p>
+	</p>-->
 </body>
 
+<style>
+.node {
+	position: absolute;
+	width: Calc(2 * var(--fsize));
+	height: Calc(2 * var(--fsize));
+	background-color: white;
+	border: 2px solid grey;
+	border-radius: 10vw;
+	font-size: Calc(0.3 * var(--fsize));
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+a {
+	text-decoration: none !important;
+}
+</style>
 </html>

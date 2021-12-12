@@ -6,5 +6,5 @@ Despite this, it does not use JavaScript!
 
 The code is [here](https://github.com/hhhhhhhhhn/hhhhhhhhhn.github.io)
 
-Tags: Javascript, Node JS, HTML + CSS, SSG
+Tags: JavaScript, Node JS, HTML + CSS, SSG
 100

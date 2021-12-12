@@ -6,12 +6,12 @@ const { Template } = require("nunjucks")
 
 const nunjucks = new (require('nunjucks')).Environment()
 
-function main() {
+async function main() {
 	copySync("src/", "docs/")
 	let projects = getProjects()
 	let tags = getTags(projects)
 	renderProjectsIndex(projects)
-	renderTagIndex(tags)
+	await renderTagIndex(tags, projects)
 	renderTags(tags, projects)
 }
 
@@ -97,8 +97,89 @@ function renderProjectsIndex(projects) {
 	)
 }
 
-function renderTagIndex(tags) {
-	renderTemplate("src/projects/tags.html", "docs/projects/tags.html", {tags})
+function nodesFromTags(tags) {
+	let nodes = []
+	for (let [tagName, titles] of Object.entries(tags)) {
+		nodes.push({tagName, titles, id:tagName})
+	}
+	return nodes
+}
+
+function getTagLinks(projects) {
+	let links = []
+	for (let [, project] of Object.entries(projects)) {
+		for (let i = 0; i < project.tags.length - 1; i++) {
+			for (let j = i + 1; j < project.tags.length; j++) {
+				let isNewLink = true
+				for (let link of links) {
+					if (
+						(link.source == project.tags[i] && link.target == project.tags[j])
+						|| (link.source == project.tags[j] && link.target == project.tags[i])
+					) {
+						isNewLink = false
+						link.distance *= 0.95
+					}
+				}
+				if (isNewLink) {
+					links.push({
+						"source": project.tags[i],
+						"target": project.tags[j],
+						"distance": 100
+					})
+				}
+			}
+		}
+	}
+	return links
+}
+
+function normalizeNodes(nodes) {
+	let leftBound = Infinity
+	let topBound = Infinity
+	let rightBound = -Infinity
+	let bottomBound = -Infinity
+
+	for (let node of nodes) {
+		if (node.x < leftBound)
+			leftBound = node.x
+		if (node.y < topBound)
+			topBound = node.y
+		if (node.x > rightBound)
+			rightBound = node.x
+		if (node.y > bottomBound)
+			bottomBound = node.y
+	}
+	
+	let xScalingFactor = 1 / (rightBound - leftBound)
+	let yScalingFactor = 1 / (bottomBound - topBound)
+	let xOffset = -(leftBound * xScalingFactor)
+	let yOffset = -(topBound * yScalingFactor)
+
+	for (let node of nodes) {
+		node.x = node.x * xScalingFactor + xOffset
+		node.y = node.y * yScalingFactor + yOffset
+	}
+
+	return nodes
+}
+
+async function generateGraph(tags, projects) {
+	let nodes = nodesFromTags(tags)
+	d3 = await import("d3-force")
+	let links = getTagLinks(projects)
+	let simulation = d3.forceSimulation(nodes)
+		.force("link", d3.forceLink(links).id(d => d.id).distance(l => l.distance).strength(3))
+		.force("radius", d3.forceCollide(40))
+		.force("force", d3.forceManyBody().strength(-10))
+		.force("center", d3.forceCenter())
+	simulation.tick(500)
+	nodes = normalizeNodes(simulation.nodes())
+	return [normalizeNodes(simulation.nodes()), links]
+}
+
+async function renderTagIndex(tags, projects) {
+	let [nodes, links] = await generateGraph(tags, projects)
+	renderTemplate("src/projects/tags.html", "docs/projects/tags.html", {nodes, links, Math})
 }
 
 main()
