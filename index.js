@@ -163,6 +163,36 @@ function normalizeNodes(nodes) {
 	return nodes
 }
 
+function distance(x1, y1, x2, y2) {
+	return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2))
+}
+
+function setLinkLocationAndAngle(links) {
+	// Note: The link position represents its center
+	for (let link of links) {
+		let source = link.source
+		let target = link.target
+
+		link.length = distance(source.x, source.y, target.x, target.y)
+		link.x = (source.x + target.x) / 2
+		link.y = (source.y + target.y) / 2
+
+		//          T
+		//         /|
+		//    l/2 / |
+		//       /α |
+		//      L----
+		//     /
+		//    /
+		//   /
+		//  S           T=target, S=source, L=link, α =angle
+
+		let ady = target.x - link.x
+		link.angle = Math.acos(2 * ady / link.length) * 360 / (2 * Math.PI)
+	}
+	return links
+}
+
 async function generateGraph(tags, projects) {
 	let nodes = nodesFromTags(tags)
 	d3 = await import("d3-force")
@@ -174,6 +204,7 @@ async function generateGraph(tags, projects) {
 		.force("center", d3.forceCenter())
 	simulation.tick(500)
 	nodes = normalizeNodes(simulation.nodes())
+	links = setLinkLocationAndAngle(links)
 	return [normalizeNodes(simulation.nodes()), links]
 }
 

@@ -14,6 +14,22 @@
 <body>
 	<!-- <h1>Technologies</h1> -->
 	<div id="graph">
+		<!-- % for link in links %}
+			<div
+				class="link"
+				style="
+					--width: Calc(vw * 80);
+					width: var(--width);
+					background-color: black;
+					height: 3px;
+					left: Calc(Calc(Calc(NaNvw - Calc(var(--width) / 2)) * 0.8) + 10vw);
+					top: Calc(Calc(Calc(NaNvh - 2px) * 0.8) + 10vh);
+					transform-origin: 50% 1.5px;
+					transform: rotate(NaNdeg);
+					"
+			></div>
+		% endfor %}
+		--!>
 		
 			<a href="linux.html">
 				<div
@@ -339,8 +355,6 @@
 <style>
 .node {
 	position: absolute;
-	width: Calc(2 * var(--fsize));
-	height: Calc(2 * var(--fsize));
 	background-color: white;
 	border: 2px solid grey;
 	border-radius: 10vw;
@@ -349,6 +363,13 @@
 	justify-content: center;
 	align-items: center;
 	text-align: center;
+	transform-origin: 50% 50%;
+	transform: scale(100%);
+	transition: transform 0.5s ease-in-out;
+}
+
+.node:hover {
+	transform: scale(120%);
 }
 
 a {
