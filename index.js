@@ -8,13 +8,18 @@ const nunjucks = new (require('nunjucks')).Environment()
 
 async function main() {
 	copySync("src/", "docs/")
+	copySync("writings/assets/", "docs/writings/assets/")
 	let projects = getProjects()
 	let tags = getTags(projects)
+	let writings = getWritings()
 	renderProjectsIndex(projects)
 	await renderTagIndex(tags, projects)
 	renderTags(tags, projects)
+	renderWritingIndex(writings)
+	renderWritings(writings)
 }
 
+/////////////////////////// Projects Section //////////////////////////////////
 function getProjects() {
 	let projects = {}
 	for(let file of ls("projects/*")) {
@@ -63,9 +68,7 @@ function getTags(projects) {
 		}
 	}
 	return tags
-}
-
-function renderTemplate(template, output, context={}) {
+} function renderTemplate(template, output, context={}) {
 	let temp = new Template(readFileSync(template, "utf-8"), nunjucks)
 	let rendered = temp.render(context)
 	writeFileSync(output, rendered, "utf-8")
@@ -211,6 +214,45 @@ async function generateGraph(tags, projects) {
 async function renderTagIndex(tags, projects) {
 	let [nodes, links] = await generateGraph(tags, projects)
 	renderTemplate("src/projects/tags.html", "docs/projects/tags.html", {nodes, links, Math})
+}
+
+////////////////////////////// Writings section ///////////////////////////////
+function getWritings() {
+	let writings = []
+	for(let file of ls("writings/*")) {
+		if (file.full.slice(-3) == ".md") {
+			let writingText = readFileSync(file.full, "utf-8")
+			writings.push(parseWriting(writingText))
+		}
+	}
+	return writings
+}
+
+function parseWriting(text) {
+	let lines = text.split("\n")
+	return {
+		title:    lines[0].replace("# ", ""),
+		filename: simplify(lines[0].replace("# ", "").toLowerCase()),
+		html:     md.render(lines.slice(0, -3).join("\n")),
+		tags:     lines.slice(-3)[0].replace("Tags: ", "").split(", "),
+		date:     new Date(lines.slice(-2)[0])
+	}
+}
+
+function renderWritings(writings) {
+	for(let writing of writings) {
+		renderTemplate(
+			"src/writings/writing.temp.html",
+			`docs/writings/${simplify(writing.title)}.html`,
+			{
+				writing
+			}
+		)
+	}
+}
+
+function renderWritingIndex(writings) {
+	renderTemplate("src/writings/index.html", "docs/writings/index.html", {writings})
 }
 
 main()
