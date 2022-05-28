@@ -7,4 +7,4 @@ Despite this, it does not use JavaScript!
 The code is [here](https://github.com/hhhhhhhhhn/hhhhhhhhhn.github.io)
 
 Tags: JavaScript, Node JS, HTML + CSS, SSG
-100
+70
