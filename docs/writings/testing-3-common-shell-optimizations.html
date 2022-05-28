@@ -9,6 +9,7 @@
 	<title>Testing 3 common shell optimizations</title>
 	<link rel="stylesheet" href="../main.css">
 	<link rel="stylesheet" href="./index.css">
+	<link rel="stylesheet" href="./code.css">
 </head>
 
 <body>
@@ -21,16 +22,16 @@ So, I decided to put three common ones to the test, with <a href="https://github
 <h2>Replacing <code>if</code> statements with logical operators</h2>
 <p>The idea is simple, using logical operators (<code>&amp;&amp;</code> and <code>||</code>) instead of <code>if</code> statements.
 For example:</p>
-<pre><code class="language-bash">if [ -z &quot;&quot; ]; then
-	echo &quot;Empty&quot;
-else
-	echo &quot;Not empty&quot;
-fi
+<pre><code class="hljs language-bash"><span class="hljs-keyword">if</span> [ -z <span class="hljs-string">&quot;&quot;</span> ]; <span class="hljs-keyword">then</span>
+	<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Empty&quot;</span>
+<span class="hljs-keyword">else</span>
+	<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Not empty&quot;</span>
+<span class="hljs-keyword">fi</span>
 </code></pre>
 <p>Turns into:</p>
-<pre><code class="language-bash">[ -z &quot;&quot; ] \
-	&amp;&amp; echo &quot;Empty&quot; \
-	|| echo &quot;Not empty&quot;
+<pre><code class="hljs language-bash">[ -z <span class="hljs-string">&quot;&quot;</span> ] \
+	&amp;&amp; <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Empty&quot;</span> \
+	|| <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Not empty&quot;</span>
 </code></pre>
 <h3>Results</h3>
 <p>Running 10000 statements of each kind, 5 times, with 4 different shells, the results are:</p>
@@ -44,13 +45,13 @@ being a full 33% slower than with logical operators.</p>
 <p>This speaks of the possible methods of using a file as a program's input.
 I tested 3 options.
 The first one is redirecting the file contents using the <code>&lt;</code> operator:</p>
-<pre><code class="language-bash">&lt;/etc/hostname grep A
+<pre><code class="hljs language-bash">&lt;/etc/hostname grep A
 </code></pre>
 <p>The second one is the classic and amateurish <code>cat</code> pipe:</p>
-<pre><code class="language-bash">cat /etc/hostname | grep A
+<pre><code class="hljs language-bash"><span class="hljs-built_in">cat</span> /etc/hostname | grep A
 </code></pre>
 <p>Finally, the third one is simply using the program's file argument:</p>
-<pre><code class="language-bash">grep A /etc/hostname
+<pre><code class="hljs language-bash">grep A /etc/hostname
 </code></pre>
 <h3>Results</h3>
 <p><strong>NOTE</strong>: Done only with 1000 iterations.</p>
@@ -69,16 +70,16 @@ Interestingly, it may be faster, having to skip all those steps
 (At least according to a <a href="https://unix.stackexchange.com/a/67131">SE answer</a>).
 Let's put it to the test:</p>
 <p>Firstly, let's consider the two options, without:</p>
-<pre><code class="language-bash">var=&quot;a b c d e f g h i j k l m n o p q r s t u v w x y z&quot;
-echo $var
+<pre><code class="hljs language-bash">var=<span class="hljs-string">&quot;a b c d e f g h i j k l m n o p q r s t u v w x y z&quot;</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-variable">$var</span>
 </code></pre>
 <p>And with quotes:</p>
-<pre><code class="language-bash">var=&quot;a b c d e f g h i j k l m n o p q r s t u v w x y z&quot;
-echo &quot;$var&quot;
+<pre><code class="hljs language-bash">var=<span class="hljs-string">&quot;a b c d e f g h i j k l m n o p q r s t u v w x y z&quot;</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$var</span>&quot;</span>
 </code></pre>
 <p>And, just for fun, <code>echo</code>ing the value directly:</p>
-<pre><code class="language-bash">var=&quot;a b c d e f g h i j k l m n o p q r s t u v w x y z&quot;
-echo &quot;a b c d e f g h i j k l m n o p q r s t u v w x y z&quot;
+<pre><code class="hljs language-bash">var=<span class="hljs-string">&quot;a b c d e f g h i j k l m n o p q r s t u v w x y z&quot;</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;a b c d e f g h i j k l m n o p q r s t u v w x y z&quot;</span>
 </code></pre>
 <h3>Results</h3>
 <p><img src="./assets/shell-script-optimizations/varchart.png" alt="Variables performance graph"></p>

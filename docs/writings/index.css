@@ -34,14 +34,6 @@ p, ul {
 	color: grey;
 }
 
-code {
-	overflow: hidden;
-	width: 80vw;
-	font-size: inherit;
-	background-color: #EEEEEE;
-	tab-size: 4;
-}
-
 a, b, strong, i, em, li {
 	font-size: inherit;
 }
@@ -62,4 +54,9 @@ img {
 	margin-left: 20vw;
 	width: 40vw;
 	align-self: center;
+}
+
+hr {
+	border: 0px;
+	border-top: 2px solid grey;
 }

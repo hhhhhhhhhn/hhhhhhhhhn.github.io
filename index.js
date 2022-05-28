@@ -1,6 +1,7 @@
 const { readFileSync, writeFileSync } = require("fs")
 const ls = require("ls")
 const md = require("markdown-it")()
+	.use(require("markdown-it-highlightjs"))
 const { copySync } = require("fs-extra")
 const { Template } = require("nunjucks")
 

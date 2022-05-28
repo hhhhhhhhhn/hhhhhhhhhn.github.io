@@ -9,11 +9,12 @@
 	<title>Writings</title>
 	<link rel="stylesheet" href="../main.css">
 	<link rel="stylesheet" href="./index.css">
+	<link rel="stylesheet" href="./code.css">
 </head>
 
 <body>
 	<div id="article">
-		{% for writing in writings %}
+		{% for writing in writings.reverse() %}
 		<a href="{{ writing.title | simplify }}.html" class="article-link">
 			<div id="date"><p>{{writing.date.toDateString()}}</p></div>
 			<h1>{{ ( writing.html.split("</p>")[0] + "..</p>" ) | safe}}</h1>

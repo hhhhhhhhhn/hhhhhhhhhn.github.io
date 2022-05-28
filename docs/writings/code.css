@@ -1,0 +1,40 @@
+code, code span {
+	overflow: hidden;
+	width: 80vw;
+	font-size: inherit;
+	background-color: #EEEEEE;
+	tab-size: 4;
+}
+
+.hljs-keyword {
+	font-weight: bold;
+}
+
+.hljs-string,
+.hljs-title,
+.hljs-name,
+.hljs-type,
+.hljs-attribute,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-built_in,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+	color: #000000;
+}
+
+.hljs-string,
+.hljs-number {
+	color: #666666;
+}
+
+.hljs-comment, .hljs-quote {
+	color: #AAAAAA;
+	font-style: italic;
+}
+
+.language-lisp .hljs-name {
+	font-weight: bold;
+}
