@@ -1,7 +1,9 @@
 const { readFileSync, writeFileSync } = require("fs")
 const ls = require("ls")
 const md = require("markdown-it")()
-	.use(require("markdown-it-highlightjs"))
+	.use(require("markdown-it-highlightjs"), {register: {"forth": require("./forth")}})
+	.use(require("markdown-it-attrs"))
+	.use(require("markdown-it-multimd-table"))
 const { copySync } = require("fs-extra")
 const { Template } = require("nunjucks")
 
@@ -226,7 +228,7 @@ function getWritings() {
 			writings.push(parseWriting(writingText))
 		}
 	}
-	return writings
+	return writings.sort((a, b) => (a.date < b.date))
 }
 
 function parseWriting(text) {
