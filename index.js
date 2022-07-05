@@ -228,7 +228,8 @@ function getWritings() {
 			writings.push(parseWriting(writingText))
 		}
 	}
-	return writings.sort((a, b) => (a.date < b.date))
+	writings.sort((a, b) => (b.date.getTime() - a.date.getTime()))
+	return writings
 }
 
 function parseWriting(text) {

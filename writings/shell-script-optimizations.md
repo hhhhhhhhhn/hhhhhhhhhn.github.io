@@ -1,4 +1,4 @@
-# Testing 3 common shell optimizations
+# Testing 3 Common Shell Optimizations
 Although worrying about performance in shell scripts seems ironic at first (at least to me),
 I have seen enough tips to become curious about the actual benefits of some of them.
 So, I decided to put three common ones to the test, with [a few self-made benchmarks](https://github.com/hhhhhhhhhn/bensh).
