@@ -131,4 +131,4 @@ Work around it.
 - Specifically, [KolibriOS](http://kolibrios.org/en/). {#kolibri}
 
 Tags: Programming, Opinion
-Mon Jul  4 12:33:45 PM -04 2022
+Mon Jul  4 10:08:44 PM -04 2022
