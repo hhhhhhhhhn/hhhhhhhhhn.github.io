@@ -20,6 +20,7 @@ async function main() {
 	renderTags(tags, projects)
 	renderWritingIndex(writings)
 	renderWritings(writings)
+	renderXML(writings, new Date())
 }
 
 /////////////////////////// Projects Section //////////////////////////////////
@@ -58,7 +59,12 @@ function simplify(string) {
 	return string.replace(/[^\w]/g, "-").toLowerCase()
 }
 
+function removeTags(string) {
+	return string.replace( /(<([^>]+)>)/g, "");
+}
+
 nunjucks.addFilter("simplify", simplify)
+nunjucks.addFilter("removeTags", removeTags)
 
 function getTags(projects) {
 	let tags = {}
@@ -257,6 +263,10 @@ function renderWritings(writings) {
 
 function renderWritingIndex(writings) {
 	renderTemplate("src/writings/index.html", "docs/writings/index.html", {writings})
+}
+
+function renderXML(writings, date) {
+	renderTemplate("src/writings/feed.xml", "docs/writings/feed.xml", {writings, date})
 }
 
 main()

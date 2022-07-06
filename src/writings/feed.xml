@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+	<atom:link href="https://hhhhhhhhhn.com/writings/feed.xml" rel="self" type="application/rss+xml"/>
+	<title>hhhhhhhhhn</title>
+	<link>https://hhhhhhhhhn.com/writings</link>
+	<description>hhhhhhhhhn's writings</description>
+	<lastBuildDate>{{date.toUTCString()}}</lastBuildDate>
+	<language>en-us</language>
+{% for writing in writings %}
+		<item>
+			<title>{{writing.title}}</title>
+			<link>https://hhhhhhhhhn.com/writings/{{writing.title | simplify}}.html</link>
+			<guid>https://hhhhhhhhhn.com/writings/{{writing.title | simplify}}.html</guid>
+			<pubDate>{{writing.date.toUTCString()}}</pubDate>
+			<description>{{ (writing.html.split("</p>")[0] + "..</p>").split("</h1>")[1] | removeTags }}</description>
+		</item>
+{% endfor %}
+</channel>
+</rss>

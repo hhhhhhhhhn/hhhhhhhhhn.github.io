@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+	<atom:link href="https://hhhhhhhhhn.com/writings/feed.xml" rel="self" type="application/rss+xml"/>
+	<title>hhhhhhhhhn</title>
+	<link>https://hhhhhhhhhn.com/writings</link>
+	<description>hhhhhhhhhn's writings</description>
+	<lastBuildDate>Wed, 06 Jul 2022 19:15:55 GMT</lastBuildDate>
+	<language>en-us</language>
+
+		<item>
+			<title>Markdown: A Patch for the Modern Web</title>
+			<link>https://hhhhhhhhhn.com/writings/markdown--a-patch-for-the-modern-web.html</link>
+			<guid>https://hhhhhhhhhn.com/writings/markdown--a-patch-for-the-modern-web.html</guid>
+			<pubDate>Tue, 05 Jul 2022 02:08:44 GMT</pubDate>
+			<description>
+I think it is no secret that websites have become worse with time.
+From ads to pop-ups to terrible load times,
+it seems that looking stuff up gets harder as every second goes by.
+People have tried to reform the Internet.
+Projects like Gopher1
+and Gemini come to mind.
+Although they have been very successful in their niches (including me),
+I find it hard to believe regular people are using them.
+I think the solution is often overlooked in between attempts to reinvent the wheel.
+It is a format that is already widely used: Markdown...</description>
+		</item>
+
+		<item>
+			<title>Approximating 𝑒 in 6½ Programming Languages</title>
+			<link>https://hhhhhhhhhn.com/writings/approximating----in-6--programming-languages.html</link>
+			<guid>https://hhhhhhhhhn.com/writings/approximating----in-6--programming-languages.html</guid>
+			<pubDate>Sat, 11 Jun 2022 21:45:23 GMT</pubDate>
+			<description>
+I often use programming languages to play around with mathematical problems,
+as they are often the fastest option to quickly iterate over ideas.
+I have used the usual scripting options, like Python, JavaScript, Julia, Go, and even bc.
+That left me wanting to compare some of them,
+but then I noticed I could use the opportunity to compare a more diverse range of languages.
+This is the result of the comparison...</description>
+		</item>
+
+		<item>
+			<title>Testing 3 Common Shell Optimizations</title>
+			<link>https://hhhhhhhhhn.com/writings/testing-3-common-shell-optimizations.html</link>
+			<guid>https://hhhhhhhhhn.com/writings/testing-3-common-shell-optimizations.html</guid>
+			<pubDate>Sun, 19 Dec 2021 13:48:44 GMT</pubDate>
+			<description>
+Although worrying about performance in shell scripts seems ironic at first (at least to me),
+I have seen enough tips to become curious about the actual benefits of some of them.
+So, I decided to put three common ones to the test, with a few self-made benchmarks...</description>
+		</item>
+
+</channel>
+</rss>

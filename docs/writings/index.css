@@ -90,3 +90,14 @@ table, tr, td, th {
 tr {
 	min-width: Calc(1000 * var(--fsize)) !important;
 }
+
+#rss {
+	position: absolute;
+	top: 0em;
+	right: 0.5em;
+}
+
+#rss a {
+	font-size: Calc(0.5 * var(--fsize)) !important;
+	text-decoration: none;
+}
