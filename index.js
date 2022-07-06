@@ -12,6 +12,7 @@ const nunjucks = new (require('nunjucks')).Environment()
 async function main() {
 	copySync("src/", "docs/")
 	copySync("writings/assets/", "docs/writings/assets/")
+	copySync("writings/assets/", "docs/md/writings/assets/")
 	let projects = getProjects()
 	let tags = getTags(projects)
 	let writings = getWritings()
@@ -21,6 +22,7 @@ async function main() {
 	renderWritingIndex(writings)
 	renderWritings(writings)
 	renderXML(writings, new Date())
+	renderMD(projects, writings)
 }
 
 /////////////////////////// Projects Section //////////////////////////////////
@@ -41,6 +43,7 @@ function parseProject(project) {
 		{
 			filename: simplify(lines[0].replace("# ", "").toLowerCase()),
 			html:     md.render(lines.slice(0, -3).join("\n")),
+			md:       lines.slice(0, -3).join("\n"),
 			tags:     lines.slice(-3)[0].replace("Tags: ", "").split(", "),
 			score:    Number(lines.slice(-2)[0])
 		}
@@ -244,6 +247,7 @@ function parseWriting(text) {
 		title:    lines[0].replace("# ", ""),
 		filename: simplify(lines[0].replace("# ", "").toLowerCase()),
 		html:     md.render(lines.slice(0, -3).join("\n")),
+		md:       lines.slice(0, -3).join("\n"),
 		tags:     lines.slice(-3)[0].replace("Tags: ", "").split(", "),
 		date:     new Date(lines.slice(-2)[0])
 	}
@@ -267,6 +271,23 @@ function renderWritingIndex(writings) {
 
 function renderXML(writings, date) {
 	renderTemplate("src/writings/feed.xml", "docs/writings/feed.xml", {writings, date})
+}
+
+function renderMD(projects, writings) {
+	renderTemplate("src/md/writings/index.md", "docs/md/writings/index.md", {writings})
+	for(let writing of writings) {
+		renderTemplate(
+			"src/md/writings/writing.temp.md",
+			`docs/md/writings/${simplify(writing.title)}.md`,
+			{
+				writing
+			}
+		)
+	}
+	renderTemplate("src/md/projects.md", "docs/md/projects.md", {
+		titles: sortTitlesByScore(Object.keys(projects), projects),
+		projects
+	})
 }
 
 main()

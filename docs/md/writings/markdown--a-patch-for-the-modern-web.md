@@ -132,5 +132,3 @@ Work around it.
 
 - [Done](https://hhhhhhhhhn.com/md/index.md)
 
-Tags: Programming, Opinion
-Mon Jul  4 10:08:44 PM -04 2022
