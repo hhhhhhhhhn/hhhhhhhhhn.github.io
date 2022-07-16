@@ -5,8 +5,25 @@
 	<title>hhhhhhhhhn</title>
 	<link>https://hhhhhhhhhn.com/writings</link>
 	<description>hhhhhhhhhn's writings</description>
-	<lastBuildDate>Wed, 06 Jul 2022 23:51:39 GMT</lastBuildDate>
+	<lastBuildDate>Sat, 16 Jul 2022 22:01:43 GMT</lastBuildDate>
 	<language>en-us</language>
+
+		<item>
+			<title>Rust is Nice</title>
+			<link>https://hhhhhhhhhn.com/writings/rust-is-nice.html</link>
+			<guid>https://hhhhhhhhhn.com/writings/rust-is-nice.html</guid>
+			<pubDate>Sat, 16 Jul 2022 21:58:24 GMT</pubDate>
+			<description>
+After putting it off for years,
+I finally learned Rust.
+Even though it has been the most loved programming language since 2016,
+I still could not get over the complex-appearing syntax.
+Luckily, I was planning on making a program in C and had a lot of free time,
+so I decided to do it in a new programming language.
+After quickly considering APL,
+I noticed that it was probably the time to learn Rust.
+Now I understand why people like it...</description>
+		</item>
 
 		<item>
 			<title>Markdown: A Patch for the Modern Web</title>

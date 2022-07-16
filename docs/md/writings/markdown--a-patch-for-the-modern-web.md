@@ -124,11 +124,11 @@ Do not fight it.
 Work around it.
 
 ## Footnotes
-- In truth, Gopher was created around the same time as HTTP,
+1. In truth, Gopher was created around the same time as HTTP,
   but lost the competition. 
   Its simplicity has given it a bit of a resurgence recently. {#gopher}
 
-- Specifically, [KolibriOS](http://kolibrios.org/en/). {#kolibri}
+2. Specifically, [KolibriOS](http://kolibrios.org/en/). {#kolibri}
 
-- [Done](https://hhhhhhhhhn.com/md/index.md)
+3. [Done](https://hhhhhhhhhn.com/md/index.md)
 

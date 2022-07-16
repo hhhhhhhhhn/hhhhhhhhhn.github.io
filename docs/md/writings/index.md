@@ -1,5 +1,16 @@
 # Writings
 
+# [Rust is Nice](rust-is-nice.md)
+After putting it off for years,
+I finally learned Rust.
+Even though it has been the most loved programming language [since 2016](https://insights.stackoverflow.com/survey/2016#technology-most-loved-dreaded-and-wanted),
+I still could not get over the complex-appearing syntax.
+Luckily, I was planning on making a program in C and had a lot of free time,
+so I decided to do it in a new programming language.
+After quickly considering APL,
+I noticed that it was probably the time to learn Rust.
+Now I understand why people like it.
+
 # [Markdown: A Patch for the Modern Web](markdown--a-patch-for-the-modern-web.md)
 I think it is no secret that websites have become worse with time.
 From ads to pop-ups to terrible load times,
