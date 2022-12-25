@@ -43,7 +43,7 @@ a {
 	bottom: 0;
 	right: 0;
 	display: flex;
-	flex-direction: row;
+	flex-direction: row-reverse;
 }
 
 #bottom-corner a {
@@ -117,4 +117,39 @@ a {
 	100% {
 		content: "hhhhhhhhhhhhhhhhhhhhh";
 	}
+}
+
+#invert-circle {
+  position: absolute;
+  top: 50%;
+  left: 17%;
+  border-radius: 100%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  backdrop-filter: invert(1);
+  background-color: #00000090;
+  color: black;
+  z-index: -1;
+  transition: width 1s, height 1s;
+  transition-timing-function: ease;
+}
+
+#bottom-corner a {
+  z-index: -2 !important;
+}
+
+#writings-link {
+  z-index: 2;
+}
+
+a:hover #invert-circle {
+  width: Calc(3 * var(--fsize));
+  height: Calc(3 * var(--fsize));
+}
+
+a:active #invert-circle {
+  width: Calc(150vh + 150vw);
+  height: Calc(150vh + 150vw);
+  transition-duration: 0.3s;
 }
