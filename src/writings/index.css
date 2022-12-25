@@ -112,3 +112,7 @@ tr {
 	backdrop-filter: invert(1);
 	pointer-events: none;
 }
+
+h1, h2, h3, h4 {
+	filter: url(#filter);
+}

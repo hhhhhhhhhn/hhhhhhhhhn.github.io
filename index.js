@@ -6,6 +6,7 @@ const md = require("markdown-it")()
 	.use(require("markdown-it-multimd-table"))
 const { copySync } = require("fs-extra")
 const { Template } = require("nunjucks")
+const common = require("./common")
 
 const nunjucks = new (require('nunjucks')).Environment()
 
@@ -80,7 +81,10 @@ function getTags(projects) {
 		}
 	}
 	return tags
-} function renderTemplate(template, output, context={}) {
+}
+
+function renderTemplate(template, output, context={}) {
+	context.common = common
 	let temp = new Template(readFileSync(template, "utf-8"), nunjucks)
 	let rendered = temp.render(context)
 	writeFileSync(output, rendered, "utf-8")
