@@ -4,6 +4,7 @@ code, code span {
 	font-size: inherit;
 	background-color: #EEEEEE;
 	tab-size: 4;
+	color: #666;
 }
 
 .hljs-keyword {
