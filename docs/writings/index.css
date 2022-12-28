@@ -31,7 +31,7 @@ h2 {
 
 h3 {
 	font-size: 0.7em;
-	padding-top: 1em;
+	padding-top: 0.5em;
 	margin-bottom: 0em;
 	font-weight: normal;
 }
@@ -63,15 +63,27 @@ pre {
 	padding: .7em;
 }
 
+video {
+	margin-left: 10vw;
+	width: 60vw;
+	align-self: center;
+}
+
+
 img {
 	margin-left: 20vw;
 	width: 40vw;
 	align-self: center;
 }
 
-img.small {
+.small {
 	margin-left: 30vw;
 	width: 20vw;
+}
+
+.medium {
+	margin-left: 25vw;
+	width: 30vw;
 }
 
 hr {
@@ -118,6 +130,11 @@ h1, h2, h3, h4 {
 	filter: url(#filter);
 }
 
+hr {
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+}
+
 a, a:visited {
 	color: #555;
 }
@@ -125,4 +142,25 @@ a, a:visited {
 a:hover {
 	color: #222;
 	filter: url(#filter);
+}
+
+.invert-filter, .invert-filter:hover {
+  filter: invert(1);
+}
+
+#article-bottom {
+	font-size: inherit;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#back-button {
+	position: fixed;
+	top: 2vw;
+	left: 2vw;
+}
+
+#back-button a {
+	text-decoration: none;
 }

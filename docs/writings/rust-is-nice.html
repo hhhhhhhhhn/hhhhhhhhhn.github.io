@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Rust is Nice">
-	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%221em%22 font-size=%2280%22 font-family=%22sans%22>h</text></svg>">
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22 style=%22background-color:white%22><text y=%221em%22 x=%220.3em%22 font-size=%2280%22 font-family=%22sans%22>  h</text></svg>">
 	<title>Rust is Nice</title>
 	<link rel="stylesheet" href="../main.css">
 	<link rel="stylesheet" href="./index.css">
@@ -13,6 +13,10 @@
 </head>
 
 <body>
+	<div id="back-button">
+		<a href="./">&lt;</a>
+	</div>
+
 	<div id="date"><p>Sat Jul 16 2022</p></div>
 	<div id="article">
 		<h1>Rust is Nice</h1>
@@ -29,7 +33,7 @@ Now I understand why people like it.</p>
 <p>To start, Rust is fast.
 Like within-ten-percent-of-C fast.
 I think this saves time in the long term,
-because it prevents programmers from having to work around the language when optimising programs.
+because it prevents programmers from having to work around the language when optimizing programs.
 Writing Python is enjoyable,
 but it is no coincidence that many of its libraries<a href="#python-c" class="footnote">1</a> are written partly in C.
 To test it,
@@ -56,7 +60,7 @@ Take, for example, the 𝑒 program:</p>
 <span class="hljs-keyword">fn</span> <span class="hljs-title function_">e</span>(k: <span class="hljs-type">i32</span>) <span class="hljs-punctuation">-&gt;</span> Float {
 	<span class="hljs-keyword">let</span> <span class="hljs-keyword">mut </span><span class="hljs-variable">approx</span> = Float::<span class="hljs-title function_ invoke__">with_val</span>(<span class="hljs-number">100_000</span>, <span class="hljs-number">1</span>) + Float::<span class="hljs-title function_ invoke__">with_val</span>(<span class="hljs-number">100_000</span>, -k).<span class="hljs-title function_ invoke__">exp2</span>();
     <span class="hljs-keyword">for</span> <span class="hljs-variable">_</span> <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..k {
-		approx.<span class="hljs-title function_ invoke__">square_mut</span>();
+		  approx.<span class="hljs-title function_ invoke__">square_mut</span>();
     }
     <span class="hljs-keyword">return</span> approx
 }
@@ -271,6 +275,10 @@ and needs Shift to be pressed.</li>
     </filter>
 </svg>
 
+	<hr>
+	<div id="article-bottom">
+		<a href="mailto:hhhhhhhhhn@protonmail.com">contact</a>
+	</div>
 </body>
 
 </html>

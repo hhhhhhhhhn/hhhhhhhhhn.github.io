@@ -1,6 +1,8 @@
 const { readFileSync, writeFileSync } = require("fs")
 const ls = require("ls")
-const md = require("markdown-it")()
+const md = require("markdown-it")({
+    html: true,
+  })
 	.use(require("markdown-it-highlightjs"), {register: {"forth": require("./forth")}})
 	.use(require("markdown-it-attrs"))
 	.use(require("markdown-it-multimd-table"))

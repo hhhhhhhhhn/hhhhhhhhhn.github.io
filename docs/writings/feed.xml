@@ -5,8 +5,23 @@
 	<title>hhhhhhhhhn</title>
 	<link>https://hhhhhhhhhn.com/writings</link>
 	<description>hhhhhhhhhn's writings</description>
-	<lastBuildDate>Sun, 25 Dec 2022 19:39:30 GMT</lastBuildDate>
+	<lastBuildDate>Wed, 28 Dec 2022 12:05:05 GMT</lastBuildDate>
 	<language>en-us</language>
+
+		<item>
+			<title>A Reflection on Vim-like Text Editors</title>
+			<link>https://hhhhhhhhhn.com/writings/a-reflection-on-vim-like-text-editors.html</link>
+			<guid>https://hhhhhhhhhn.com/writings/a-reflection-on-vim-like-text-editors.html</guid>
+			<pubDate>Wed, 28 Dec 2022 11:49:53 GMT</pubDate>
+			<description>
+As a programmer, choosing the right text editor is crucial
+since you may spend several hours a day working in it.
+With so many options available,
+Vim-like text editors have gained a special reputation among enthusiasts.
+In this reflection,
+I would like to consider how these editors hold up to scrutiny
+and whether they still deserve their high status...</description>
+		</item>
 
 		<item>
 			<title>Rust is Nice</title>

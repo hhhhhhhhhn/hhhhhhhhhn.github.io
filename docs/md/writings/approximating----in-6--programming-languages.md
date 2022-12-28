@@ -194,7 +194,7 @@ I may be biased, but I'll give it an 8/10
 Forth is the ultimate fun language.
 It forces you to think differently about programming,
 having no option but to simplify everything to its essence.
-This is because everything in Forth centres around the stack,
+This is because everything in Forth centers around the stack,
 and all code is just manipulations of that stack.
 No variables or any of the other nonsense.
 

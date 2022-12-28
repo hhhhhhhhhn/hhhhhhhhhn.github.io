@@ -13,7 +13,7 @@ Now I understand why people like it.
 To start, Rust is fast.
 Like within-ten-percent-of-C fast.
 I think this saves time in the long term,
-because it prevents programmers from having to work around the language when optimising programs.
+because it prevents programmers from having to work around the language when optimizing programs.
 Writing Python is enjoyable,
 but it is no coincidence that many of its libraries[1](#python-c){.footnote} are written partly in C.
 To test it,
@@ -44,7 +44,7 @@ use rug::Float;
 fn e(k: i32) -> Float {
 	let mut approx = Float::with_val(100_000, 1) + Float::with_val(100_000, -k).exp2();
     for _ in 0..k {
-		approx.square_mut();
+		  approx.square_mut();
     }
     return approx
 }

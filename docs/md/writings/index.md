@@ -1,5 +1,14 @@
 # Writings
 
+# [A Reflection on Vim-like Text Editors](a-reflection-on-vim-like-text-editors.md)
+As a programmer, choosing the right text editor is crucial
+since you may spend several hours a day working in it.
+With so many options available,
+Vim-like text editors have gained a special reputation among enthusiasts.
+In this reflection,
+I would like to consider how these editors hold up to scrutiny
+and whether they still deserve their high status.
+
 # [Rust is Nice](rust-is-nice.md)
 After putting it off for years,
 I finally learned Rust.

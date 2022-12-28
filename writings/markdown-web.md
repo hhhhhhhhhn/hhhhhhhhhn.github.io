@@ -26,7 +26,7 @@ What do websites think about it?
 ![Dictionary websites are too large](./assets/markdown-web/graph1.png)
 
 These are the sizes for the definition of "circus".
-Notice the black bars.
+Notice the white bars.
 Wikipedia is the smallest website.
 It includes not only a definition, but also its history, uses in modern media, and controversies around animal cruelty.
 It also has 25 images related to the topic.
@@ -92,7 +92,7 @@ but be a better, faster alternative for most websites.
 
 Ads are a necessary part of the Internet.
 It is one of the main reasons so much stuff is free.
-But recently, the questionable privacy-violating practises have turned public opinion against them.
+But recently, the questionable privacy-violating practices have turned public opinion against them.
 I think explicitly-marked in-content ads are not a bad thing.
 They should be the new standard.
 Maybe if ads were not as horrible as they are now,
@@ -103,7 +103,7 @@ I would not be using an ad blocker.
 If you are not convinced by the previous reasons,
 I think there are two other important motivations:
 
-- It democratises web development.
+- It democratizes web development.
   Learning HTML, CSS, and JavaScript is a never-ending process.
   Everyone can learn Markdown in an hour.
   Let normal people have their own website without hassle.
@@ -130,7 +130,7 @@ Work around it.
 
 2. Specifically, [KolibriOS](http://kolibrios.org/en/). {#kolibri}
 
-3. [Done](https://hhhhhhhhhn.com/md/index.md)
+3. [Done](https://hhhhhhhhhn.com/md/index.md).
 
 Tags: Programming, Opinion
 Mon Jul  4 10:08:44 PM -04 2022
