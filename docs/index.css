@@ -17,7 +17,7 @@ h1 {
 	z-index: -1;
 }
 
-h1:hover:before {
+h1:before {
 	animation-name: hhh;
 	animation-duration: 0.8s;
 	animation-timing-function: ease;
@@ -25,7 +25,12 @@ h1:hover:before {
 	animation-iteration-count: infinite;
 	animation-fill-mode: forwards;
 	animation-delay: 0.5s;
+	animation-play-state: paused;
 	content: "";
+}
+
+h1:hover:before {
+	animation-play-state: running;
 }
 
 a {
