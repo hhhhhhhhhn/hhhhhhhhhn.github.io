@@ -154,7 +154,7 @@ a:hover #invert-circle {
 }
 
 a:active #invert-circle {
-  width: Calc(150vh + 150vw);
-  height: Calc(150vh + 150vw);
-  transition-duration: 0.3s;
+  width: Calc(1500vh + 1500vw);
+  height: Calc(1500vh + 1500vw);
+  transition-duration: 2s;
 }
