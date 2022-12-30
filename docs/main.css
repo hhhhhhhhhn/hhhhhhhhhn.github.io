@@ -2,13 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap'); */
 
 :root {
-	--fsize: Calc(2.5vh + 1.5vw);
-}
-
-@media(max-aspect-ratio: 1/2) {
-	:root {
-		--fsize: 6vw;
-	}
+	--fsize: Calc(1.2vh + 0.7vw + 20px);
 }
 
 body {
