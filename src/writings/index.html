@@ -21,7 +21,7 @@
 		{% for writing in writings %}
 		<a href="{{ writing.title | simplify }}.html" class="article-link">
 			<div id="date"><p>{{writing.date.toDateString()}}</p></div>
-			<h1>{{ ( writing.html.split("</p>")[0] + "..</p>" ) | safe}}</h1>
+			{{ ( writing.html.replace(common.regex('</?a[^>]*>'), "").split("</p>")[0] + "..</p>" ) | safe }}
 			<hr>
 		</a>
 		{% endfor %}

@@ -5,7 +5,7 @@
 	<title>hhhhhhhhhn</title>
 	<link>https://hhhhhhhhhn.com/writings</link>
 	<description>hhhhhhhhhn's writings</description>
-	<lastBuildDate>Fri, 30 Dec 2022 14:25:26 GMT</lastBuildDate>
+	<lastBuildDate>Sat, 31 Dec 2022 23:02:36 GMT</lastBuildDate>
 	<language>en-us</language>
 
 		<item>
@@ -78,7 +78,7 @@ This is the result of the comparison...</description>
 			<guid>https://hhhhhhhhhn.com/writings/testing-3-common-shell-optimizations.html</guid>
 			<pubDate>Sun, 19 Dec 2021 13:48:44 GMT</pubDate>
 			<description>
-Although worrying about performance in shell scripts seems ironic at first (at least to me),
+Although worrying about performance in shell scripts seems oxymoronic at first (at least to me),
 I have seen enough tips to become curious about the actual benefits of some of them.
 So, I decided to put three common ones to the test, with a few self-made benchmarks...</description>
 		</item>
