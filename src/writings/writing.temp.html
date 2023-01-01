@@ -22,11 +22,13 @@
 		{{writing.html | safe}}
 	</div>
 	<div id="background-invert"></div>
-	{{common.aberration | safe}}
 	<hr>
 	<div id="article-bottom">
 		<a href="mailto:hhhhhhhhhn@protonmail.com">contact</a>
 	</div>
+	{{common.aberration | safe}}
+	{{common.analytics("writing-" + writing.title | simplify) | safe}}
+	{{common.analyticsEnd("writing-" + writing.title | simplify) | safe}}
 </body>
 
 </html>
