@@ -327,8 +327,7 @@ Four of the languages were comparable in speed
 and actually managed to approximate 𝑒 with 100 000 binary bits to 10 000 iterations of precision<a href="#slow" class="footnote">6</a>.
 For those that did not, I did the test on a smaller scale and extrapolated the results,
 giving them the benefit of the doubt.</p>
-<p><img src="./assets/approximating-e/bargraph1.png" alt="Prolog Loses"></p>
-<p>As expected, the languages without BigFloat libraries did the worst.
+<img src="./assets/approximating-e/bargraph1.png" alt="Prolog Loses"><p>As expected, the languages without BigFloat libraries did the worst.
 Doing it with arbitrary precision fixed-point was slow,
 even with lower precision as not to cause a crash.
 Prolog seemed to scale horribly with each new iteration,
@@ -336,8 +335,7 @@ and when checking the stack trace it seemed to consider the relationship of ever
 iteration with the last, so it crashed before reaching 30.
 It is not made for this.</p>
 <p>Eliminating Prolog and Forth:</p>
-<p><img src="./assets/approximating-e/bargraph2.png" alt="C, Julia, Racket and Go"></p>
-<p>As expected, C came first, by a bit over 0.3 seconds, including compilation time.
+<img src="./assets/approximating-e/bargraph2.png" alt="C, Julia, Racket and Go"><p>As expected, C came first, by a bit over 0.3 seconds, including compilation time.
 It is the result of sacrificing readability for performance.
 On the other hand, Julia was a surprise.
 It came second to C, even though it wasn't compiled ahead of time<a href="#jit" class="footnote">7</a>.
@@ -439,7 +437,7 @@ like LuaJIT but better.</p>
 <img src="http://analytics-hhhhhhhhhn-com.up.railway.app/writing-approximating----in-6--programming-languages-end/unknown/image.svg"
      srcset="http://analytics-hhhhhhhhhn-com.up.railway.app/writing-approximating----in-6--programming-languages-end/desktop/image.svg 1w, http://analytics-hhhhhhhhhn-com.up.railway.app/writing-approximating----in-6--programming-languages-end/mobile/image.svg 2w"
      sizes="(orientation: portrait) 2px, 1px"
-     style="width: 1; height: 1; margin: 0"
+     style="width: 1px; height: 1px; margin: 0"
      loading="lazy">
 
 </body>

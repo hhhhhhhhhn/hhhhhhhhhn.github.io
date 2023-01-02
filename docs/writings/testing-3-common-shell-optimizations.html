@@ -39,8 +39,7 @@ For example:</p>
 </code></pre>
 <h3>Results</h3>
 <p>Running 10000 statements of each kind, 5 times, with 4 different shells, the results are:</p>
-<p><img src="./assets/shell-script-optimizations/ifchart.png" alt="If statement performance graph"></p>
-<p>We can see that the difference in most shells is small,
+<img src="./assets/shell-script-optimizations/ifchart.png" alt="If statement performance graph"><p>We can see that the difference in most shells is small,
 except for <code>zsh</code>,
 which seems to have a specially bad time running <code>if</code> statements,
 being a full 33% slower than with logical operators.</p>
@@ -59,8 +58,7 @@ The first one is redirecting the file contents using the <code>&lt;</code> opera
 </code></pre>
 <h3>Results</h3>
 <p><strong>NOTE</strong>: Done only with 1000 iterations.</p>
-<p><img src="./assets/shell-script-optimizations/pipechart.png" alt="Pipe performance graph"></p>
-<p>For all shells the results were quite similar,
+<img src="./assets/shell-script-optimizations/pipechart.png" alt="Pipe performance graph"><p>For all shells the results were quite similar,
 both the <code>&lt;</code> operator and the argument method working at similar speeds,
 but piping <code>cat</code> showing slightly slower results.
 It is worth noting that the performance difference seems constant all 4 shells,
@@ -86,8 +84,7 @@ Let's put it to the test:</p>
 <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;a b c d e f g h i j k l m n o p q r s t u v w x y z&quot;</span>
 </code></pre>
 <h3>Results</h3>
-<p><img src="./assets/shell-script-optimizations/varchart.png" alt="Variables performance graph"></p>
-<p>It is definitely the most confusing out of the three graphs.
+<img src="./assets/shell-script-optimizations/varchart.png" alt="Variables performance graph"><p>It is definitely the most confusing out of the three graphs.
 The performance hit of not using quotes varies from nothing in <code>zsh</code>
 to over 30% in <code>bash</code> to actually being around 10% better in <code>ksh</code>.
 Moreover, in all shells but <code>ksh</code> putting the value directly into <code>echo</code> was slower than using a variable.
@@ -147,7 +144,7 @@ they will only take a few microseconds longer.</li>
 <img src="http://analytics-hhhhhhhhhn-com.up.railway.app/writing-testing-3-common-shell-optimizations-end/unknown/image.svg"
      srcset="http://analytics-hhhhhhhhhn-com.up.railway.app/writing-testing-3-common-shell-optimizations-end/desktop/image.svg 1w, http://analytics-hhhhhhhhhn-com.up.railway.app/writing-testing-3-common-shell-optimizations-end/mobile/image.svg 2w"
      sizes="(orientation: portrait) 2px, 1px"
-     style="width: 1; height: 1; margin: 0"
+     style="width: 1px; height: 1px; margin: 0"
      loading="lazy">
 
 </body>

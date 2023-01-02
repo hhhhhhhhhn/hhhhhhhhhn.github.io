@@ -164,3 +164,24 @@ a:hover {
 #back-button a {
 	text-decoration: none;
 }
+
+.math-inline {
+	display: inline-block;
+}
+
+.math-inline svg {
+	font-size: 50%;
+}
+
+.math-inline svg, .math-block svg {
+	color: #444;
+}
+
+.math-block svg {
+	display: block;
+	align-self: center;
+	margin-top: auto;
+	margin-right: auto;
+	width: 100%;
+	font-size: 65%;
+}

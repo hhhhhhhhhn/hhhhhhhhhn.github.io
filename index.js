@@ -1,51 +1,62 @@
 const { readFileSync, writeFileSync } = require("fs")
 const ls = require("ls")
-const md = require("markdown-it")({
+const mdIt = require("markdown-it")({
     html: true,
   })
 	.use(require("markdown-it-highlightjs"), {register: {"forth": require("./forth")}})
 	.use(require("markdown-it-attrs"))
+	.use(require("markdown-it-block-image"))
 	.use(require("markdown-it-multimd-table"))
 const { copySync } = require("fs-extra")
 const { Template } = require("nunjucks")
 const common = require("./common")
+const { mathPreprocess } = require("./math")
 
 const nunjucks = new (require('nunjucks')).Environment()
+
+const md = {
+	render: async function(input) {
+		return mdIt.render(await mathPreprocess(input))
+	}
+}
 
 async function main() {
 	copySync("src/", "docs/")
 	copySync("writings/assets/", "docs/writings/assets/")
 	copySync("writings/assets/", "docs/md/writings/assets/")
-	let projects = getProjects()
+	let projects = await getProjects()
 	let tags = getTags(projects)
-	let writings = getWritings()
+	let writings = await getWritings()
+	let writingTests = writings.filter((writing) => writing.tags.includes("Test"))
+	writings = writings.filter((writing) => !writing.tags.includes("Test"))
 	renderProjectsIndex(projects)
 	await renderTagIndex(tags, projects)
 	renderTags(tags, projects)
 	renderWritingIndex(writings)
 	renderWritings(writings)
+	renderWritings(writingTests)
 	renderXML(writings, new Date())
 	renderMD(projects, writings)
 }
 
 /////////////////////////// Projects Section //////////////////////////////////
-function getProjects() {
+async function getProjects() {
 	let projects = {}
 	for(let file of ls("projects/*")) {
 		let project = readFileSync(file.full, "utf-8")
-		let [title, data] = parseProject(project)
+		let [title, data] = await parseProject(project)
 		projects[title] = data
 	}
 	return projects
 }
 
-function parseProject(project) {
+async function parseProject(project) {
 	let lines = project.split(/\r?\n/)
 	return [
 		lines[0].replace("# ", ""),
 		{
 			filename: simplify(lines[0].replace("# ", "").toLowerCase()),
-			html:     md.render(lines.slice(0, -3).join("\n")),
+			html:     await md.render(lines.slice(0, -3).join("\n")),
 			md:       lines.slice(0, -3).join("\n"),
 			tags:     lines.slice(-3)[0].replace("Tags: ", "").split(", "),
 			score:    Number(lines.slice(-2)[0])
@@ -235,24 +246,24 @@ async function renderTagIndex(tags, projects) {
 }
 
 ////////////////////////////// Writings section ///////////////////////////////
-function getWritings() {
+async function getWritings() {
 	let writings = []
 	for(let file of ls("writings/*")) {
 		if (file.full.slice(-3) == ".md") {
 			let writingText = readFileSync(file.full, "utf-8")
-			writings.push(parseWriting(writingText))
+			writings.push(await parseWriting(writingText))
 		}
 	}
 	writings.sort((a, b) => (b.date.getTime() - a.date.getTime()))
 	return writings
 }
 
-function parseWriting(text) {
+async function parseWriting(text) {
 	let lines = text.split("\n")
 	return {
 		title:    lines[0].replace("# ", ""),
 		filename: simplify(lines[0].replace("# ", "").toLowerCase()),
-		html:     md.render(lines.slice(0, -3).join("\n")),
+		html:     await md.render(lines.slice(0, -3).join("\n")),
 		md:       lines.slice(0, -3).join("\n"),
 		tags:     lines.slice(-3)[0].replace("Tags: ", "").split(", "),
 		date:     new Date(lines.slice(-2)[0])
