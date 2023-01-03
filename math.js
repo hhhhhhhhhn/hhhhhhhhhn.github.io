@@ -14,14 +14,14 @@ async function renderAsciimath(input) {
 }
 
 async function mathPreprocess(input) {
-	let output = await replaceAsync(input, /\n\$\$\$\n[\S\s]*?\$\$\$/g, 
-		async (match) =>
+	let output = await replaceAsync(input, /\n```math\n([\S\s]*?)```/g, 
+		async (_, math) =>
 			`<div class="math-block">
-				${await renderAsciimath(match.slice(5, -3))}
+				${await renderAsciimath(math)}
 			</div>`
 		)
-	output = await replaceAsync(output, /\$\$[\S\s]*?\$\$/g, 
-		async (match) => `<span class="math-inline"> ${await renderAsciimath(match.slice(2, -2))} </span>`
+	output = await replaceAsync(output, /`math ([\S\s]*?)`/g, 
+		async (_, math) => `<span class="math-inline"> ${await renderAsciimath(math)} </span>`
 		)
 	return output
 }

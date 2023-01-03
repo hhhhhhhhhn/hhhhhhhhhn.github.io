@@ -20,7 +20,7 @@ async function execAsync(command, stdin) {
 async function shellPreprocess(input) {
 	let output = await replaceAsync(
 		input,
-		/\n!!!(.*?)\n([\s\S]*?)\n!!!(.*)\n/g,
+		/\n```!(.*?)\n([\s\S]*?)\n!(.*)\n```/g,
 		async (_, command, stdin, format) => {
 			let output = await execAsync(command, stdin)
 			return "\n" + format.replace("{}", output) + "\n"
