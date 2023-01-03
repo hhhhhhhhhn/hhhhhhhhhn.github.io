@@ -39,4 +39,5 @@ async function replaceAsync(str, regex, asyncFn) {
 module.exports = {
 	renderAsciimath,
 	mathPreprocess,
+	replaceAsync,
 }

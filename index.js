@@ -11,12 +11,15 @@ const { copySync } = require("fs-extra")
 const { Template } = require("nunjucks")
 const common = require("./common")
 const { mathPreprocess } = require("./math")
+const { shellPreprocess } = require("./shell")
 
 const nunjucks = new (require('nunjucks')).Environment()
 
 const md = {
 	render: async function(input) {
-		return mdIt.render(await mathPreprocess(input))
+		let math = await mathPreprocess(input)
+		let shell = await shellPreprocess(math)
+		return mdIt.render(shell)
 	}
 }
 
