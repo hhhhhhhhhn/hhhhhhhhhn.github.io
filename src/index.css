@@ -153,7 +153,7 @@ a:hover #invert-circle {
   height: Calc(3 * var(--fsize));
 }
 
-a:active #invert-circle {
+a:focus #invert-circle {
   width: Calc(5000vh + 5000vw);
   height: Calc(5000vh + 5000vw);
   transition-duration: 2s;

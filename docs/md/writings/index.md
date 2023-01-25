@@ -1,5 +1,17 @@
 # Writings
 
+# [Understanding Backpropagation with Simple Derivatives](understanding-backpropagation-with-simple-derivatives.md)
+Backpropagation is the backbone of deep learning,
+responsible for the training phase of neural networks.
+Despite its importance,
+it is often left out of most explanations of neural networks
+due to its complexity.
+Many summaries of backpropagation
+either assume a level of background knowledge that is unnecessary
+for understanding the algorithm
+or focus explicitly on implementation,
+leaving a working program but no insight.
+
 # [A Reflection on Vim-like Text Editors](a-reflection-on-vim-like-text-editors.md)
 As a programmer, choosing the right text editor is crucial
 since you may spend several hours a day working in it.

@@ -30,7 +30,7 @@ async function main() {
 	let projects = await getProjects()
 	let tags = getTags(projects)
 	let writings = await getWritings()
-	let writingTests = writings.filter((writing) => writing.tags.includes("Test"))
+	let writingTests = writings.filter((writing) => writing.tags.includes("Test") || writing.tags.includes("Draft"))
 	writings = writings.filter((writing) => !writing.tags.includes("Test") && !writing.tags.includes("Draft"))
 	renderProjectsIndex(projects)
 	await renderTagIndex(tags, projects)

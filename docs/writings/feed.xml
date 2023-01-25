@@ -5,8 +5,26 @@
 	<title>hhhhhhhhhn</title>
 	<link>https://hhhhhhhhhn.com/writings</link>
 	<description>hhhhhhhhhn's writings</description>
-	<lastBuildDate>Tue, 03 Jan 2023 20:03:36 GMT</lastBuildDate>
+	<lastBuildDate>Wed, 25 Jan 2023 19:33:57 GMT</lastBuildDate>
 	<language>en-us</language>
+
+		<item>
+			<title>Understanding Backpropagation with Simple Derivatives</title>
+			<link>https://hhhhhhhhhn.com/writings/understanding-backpropagation-with-simple-derivatives.html</link>
+			<guid>https://hhhhhhhhhn.com/writings/understanding-backpropagation-with-simple-derivatives.html</guid>
+			<pubDate>Wed, 25 Jan 2023 19:33:23 GMT</pubDate>
+			<description>
+Backpropagation is the backbone of deep learning,
+responsible for the training phase of neural networks.
+Despite its importance,
+it is often left out of most explanations of neural networks
+due to its complexity.
+Many summaries of backpropagation
+either assume a level of background knowledge that is unnecessary
+for understanding the algorithm
+or focus explicitly on implementation,
+leaving a working program but no insight...</description>
+		</item>
 
 		<item>
 			<title>A Reflection on Vim-like Text Editors</title>
