@@ -1,5 +1,5 @@
-const { readFileSync, writeFileSync } = require("fs")
-const ls = require("ls")
+import { readFileSync, writeFileSync } from "fs"
+import ls from "ls"
 const mdIt = require("markdown-it")({
     html: true,
   })
@@ -7,16 +7,17 @@ const mdIt = require("markdown-it")({
 	.use(require("markdown-it-attrs"))
 	.use(require("markdown-it-block-image"))
 	.use(require("markdown-it-multimd-table"))
-const { copySync } = require("fs-extra")
-const { Template } = require("nunjucks")
-const common = require("./common")
-const { mathPreprocess } = require("./math")
-const { shellPreprocess } = require("./shell")
+import { copySync } from "fs-extra"
+import { Template } from "nunjucks"
+import common from "./common"
+import { mathPreprocess } from "./math"
+import { shellPreprocess } from "./shell"
+import d3 from "d3-force"
 
 const nunjucks = new (require('nunjucks')).Environment()
 
 const md = {
-	render: async function(input) {
+	render: async function(input: string): Promise<string> {
 		let math = await mathPreprocess(input)
 		let shell = await shellPreprocess(math)
 		return mdIt.render(shell)
@@ -39,35 +40,41 @@ async function main() {
 	renderWritings(writings)
 	renderWritings(writingTests)
 	renderXML(writings, new Date())
-	renderMD(projects, writings)
 }
 
 /////////////////////////// Projects Section //////////////////////////////////
-async function getProjects() {
-	let projects = {}
+async function getProjects(): Promise<Record<string, Project>> {
+	let projects: {[title: string]: Project} = {}
 	for(let file of ls("projects/*")) {
-		let project = readFileSync(file.full, "utf-8")
-		let [title, data] = await parseProject(project)
-		projects[title] = data
+		let unparsed = readFileSync(file.full, "utf-8")
+		let project = await parseProject(unparsed)
+		projects[project.title] = project
 	}
 	return projects
 }
 
-async function parseProject(project) {
+type Project = {
+	filename: string,
+	html: string,
+	md: string,
+	tags: string[],
+	score: number,
+	title: string,
+}
+
+async function parseProject(project: string): Promise<Project> {
 	let lines = project.split(/\r?\n/)
-	return [
-		lines[0].replace("# ", ""),
-		{
+	return {
+			title: lines[0].replace("# ", ""),
 			filename: simplify(lines[0].replace("# ", "").toLowerCase()),
 			html:     await md.render(lines.slice(0, -3).join("\n")),
 			md:       lines.slice(0, -3).join("\n"),
 			tags:     lines.slice(-3)[0].replace("Tags: ", "").split(", "),
 			score:    Number(lines.slice(-2)[0])
 		}
-	]
 }
 
-function sortTitlesByScore(titles, projects) {
+function sortTitlesByScore(titles: string[], projects: Record<string, Project>): string[] {
 	return titles.sort((title1, title2) => {
 		if (projects[title1].score > projects[title2].score)
 			return -1
@@ -75,19 +82,19 @@ function sortTitlesByScore(titles, projects) {
 	})
 }
 
-function simplify(string) {
+function simplify(string: string): string {
 	return string.replace(/[^\w]/g, "-").toLowerCase()
 }
 
-function removeTags(string) {
+function removeTags(string: string): string {
 	return string.replace( /(<([^>]+)>)/g, "");
 }
 
 nunjucks.addFilter("simplify", simplify)
 nunjucks.addFilter("removeTags", removeTags)
 
-function getTags(projects) {
-	let tags = {}
+function getTags(projects: Record<string, Project>): Record<string, string[]> {
+	let tags: Record<string, string[]> = {}
 	for(let [title, project] of Object.entries(projects)) {
 		for(let tag of project.tags) {
 			if(tags[tag])
@@ -99,14 +106,14 @@ function getTags(projects) {
 	return tags
 }
 
-function renderTemplate(template, output, context={}) {
+function renderTemplate(templateFilename: string, outputFilename: string, context: Record<string, any> = {}) {
 	context.common = common
-	let temp = new Template(readFileSync(template, "utf-8"), nunjucks)
+	let temp = new Template(readFileSync(templateFilename, "utf-8"), nunjucks)
 	let rendered = temp.render(context)
-	writeFileSync(output, rendered, "utf-8")
+	writeFileSync(outputFilename, rendered, "utf-8")
 }
 
-function renderTags(tags, projects) {
+function renderTags(tags: Record<string, string[]>, projects: Record<string, Project>) {
 	for(let [tagName, titles] of Object.entries(tags)) {
 		renderTemplate(
 			"src/projects/tag.temp.html",
@@ -120,7 +127,7 @@ function renderTags(tags, projects) {
 	}
 }
 
-function renderProjectsIndex(projects) {
+function renderProjectsIndex(projects: Record<string, Project>) {
 	renderTemplate(
 		"src/projects/tag.temp.html",
 		`docs/projects/index.html`,
@@ -132,7 +139,7 @@ function renderProjectsIndex(projects) {
 	)
 }
 
-function nodesFromTags(tags) {
+function nodesFromTags(tags: Record<string, string[]>) {
 	let nodes = []
 	for (let [tagName, titles] of Object.entries(tags)) {
 		nodes.push({tagName, titles, id:tagName})
@@ -140,7 +147,7 @@ function nodesFromTags(tags) {
 	return nodes
 }
 
-function getTagLinks(projects) {
+function getTagLinks(projects: Record<string, Project>) {
 	let links = []
 	for (let [, project] of Object.entries(projects)) {
 		for (let i = 0; i < project.tags.length - 1; i++) {
@@ -168,7 +175,7 @@ function getTagLinks(projects) {
 	return links
 }
 
-function normalizeNodes(nodes) {
+function normalizeNodes(nodes: any[]) {
 	let leftBound = Infinity
 	let topBound = Infinity
 	let rightBound = -Infinity
@@ -184,7 +191,7 @@ function normalizeNodes(nodes) {
 		if (node.y > bottomBound)
 			bottomBound = node.y
 	}
-	
+
 	let xScalingFactor = 1 / (rightBound - leftBound)
 	let yScalingFactor = 1 / (bottomBound - topBound)
 	let xOffset = -(leftBound * xScalingFactor)
@@ -198,58 +205,28 @@ function normalizeNodes(nodes) {
 	return nodes
 }
 
-function distance(x1, y1, x2, y2) {
-	return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2))
-}
-
-function setLinkLocationAndAngle(links) {
-	// Note: The link position represents its center
-	for (let link of links) {
-		let source = link.source
-		let target = link.target
-
-		link.length = distance(source.x, source.y, target.x, target.y)
-		link.x = (source.x + target.x) / 2
-		link.y = (source.y + target.y) / 2
-
-		//          T
-		//         /|
-		//    l/2 / |
-		//       /α |
-		//      L----
-		//     /
-		//    /
-		//   /
-		//  S           T=target, S=source, L=link, α =angle
-
-		let ady = target.x - link.x
-		link.angle = Math.acos(2 * ady / link.length) * 360 / (2 * Math.PI)
-	}
-	return links
-}
-
-async function generateGraph(tags, projects) {
+async function generateGraph(tags: Record<string, string[]>, projects: Record<string, Project>) {
 	let nodes = nodesFromTags(tags)
-	d3 = await import("d3-force")
 	let links = getTagLinks(projects)
+	// @ts-ignore
 	let simulation = d3.forceSimulation(nodes)
+		// @ts-ignore
 		.force("link", d3.forceLink(links).id(d => d.id).distance(l => l.distance).strength(3))
 		.force("radius", d3.forceCollide(40))
 		.force("force", d3.forceManyBody().strength(-10))
 		.force("center", d3.forceCenter())
 	simulation.tick(500)
 	nodes = normalizeNodes(simulation.nodes())
-	links = setLinkLocationAndAngle(links)
-	return [normalizeNodes(simulation.nodes()), links]
+	return normalizeNodes(simulation.nodes())
 }
 
-async function renderTagIndex(tags, projects) {
+async function renderTagIndex(tags: Record<string, string[]>, projects: Record<string, Project>) {
 	let [nodes, links] = await generateGraph(tags, projects)
 	renderTemplate("src/projects/tags.html", "docs/projects/tags.html", {nodes, links, Math})
 }
 
 ////////////////////////////// Writings section ///////////////////////////////
-async function getWritings() {
+async function getWritings(): Promise<Writing[]> {
 	let writings = []
 	for(let file of ls("writings/*")) {
 		if (file.full.slice(-3) == ".md") {
@@ -261,7 +238,16 @@ async function getWritings() {
 	return writings
 }
 
-async function parseWriting(text) {
+type Writing = {
+	title: string,
+	filename: string,
+	html: string,
+	md: string,
+	tags: string[],
+	date: Date,
+}
+
+async function parseWriting(text: string): Promise<Writing> {
 	let lines = text.split("\n")
 	return {
 		title:    lines[0].replace("# ", ""),
@@ -273,7 +259,7 @@ async function parseWriting(text) {
 	}
 }
 
-function renderWritings(writings) {
+function renderWritings(writings: Writing[]) {
 	for(let writing of writings) {
 		renderTemplate(
 			"src/writings/writing.temp.html",
@@ -285,29 +271,12 @@ function renderWritings(writings) {
 	}
 }
 
-function renderWritingIndex(writings) {
+function renderWritingIndex(writings: Writing[]) {
 	renderTemplate("src/writings/index.html", "docs/writings/index.html", {writings})
 }
 
-function renderXML(writings, date) {
+function renderXML(writings: Writing[], date: Date) {
 	renderTemplate("src/writings/feed.xml", "docs/writings/feed.xml", {writings, date})
-}
-
-function renderMD(projects, writings) {
-	renderTemplate("src/md/writings/index.md", "docs/md/writings/index.md", {writings})
-	for(let writing of writings) {
-		renderTemplate(
-			"src/md/writings/writing.temp.md",
-			`docs/md/writings/${simplify(writing.title)}.md`,
-			{
-				writing
-			}
-		)
-	}
-	renderTemplate("src/md/projects.md", "docs/md/projects.md", {
-		titles: sortTitlesByScore(Object.keys(projects), projects),
-		projects
-	})
 }
 
 main()

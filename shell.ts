@@ -1,7 +1,7 @@
-const { spawn } = require("child_process")
-const { replaceAsync } = require("./math")
+import { spawn } from "child_process"
+import { replaceAsync } from "./math"
 
-async function execAsync(command, stdin) {
+async function execAsync(command: string, stdin: string): Promise<string> {
 	let process = spawn(command, {shell: true})
 	process.stdin.setDefaultEncoding("utf8")
 	process.stdin.write(stdin)
@@ -17,19 +17,15 @@ async function execAsync(command, stdin) {
 	})
 }
 
-async function shellPreprocess(input) {
+export async function shellPreprocess(input: string): Promise<string> {
 	let output = await replaceAsync(
 		input,
-		/\n```!(.*?)\n([\s\S]*?)\n!(.*)\n```/g,
-		async (_, command, stdin, format) => {
+		/\n```!(.*?)\n([\s\S]*?)\n!(.*)\n```/g, // TODO: Replace with .*?
+		async (_: any, command: string, stdin: string, format: string) => {
 			let output = await execAsync(command, stdin)
 			return "\n" + format.replace("{}", output) + "\n"
 		})
 	return output
-}
-
-module.exports = {
-	shellPreprocess
 }
 
 //let test = `# This is a test

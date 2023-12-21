@@ -5,101 +5,16 @@
 	<title>hhhhhhhhhn</title>
 	<link>https://hhhhhhhhhn.com/writings</link>
 	<description>hhhhhhhhhn's writings</description>
-	<lastBuildDate>Wed, 25 Jan 2023 19:33:57 GMT</lastBuildDate>
+	<lastBuildDate>{{date.toUTCString()}}</lastBuildDate>
 	<language>en-us</language>
-
+{% for writing in writings %}
 		<item>
-			<title>Understanding Backpropagation with Simple Derivatives</title>
-			<link>https://hhhhhhhhhn.com/writings/understanding-backpropagation-with-simple-derivatives.html</link>
-			<guid>https://hhhhhhhhhn.com/writings/understanding-backpropagation-with-simple-derivatives.html</guid>
-			<pubDate>Wed, 25 Jan 2023 19:33:23 GMT</pubDate>
-			<description>
-Backpropagation is the backbone of deep learning,
-responsible for the training phase of neural networks.
-Despite its importance,
-it is often left out of most explanations of neural networks
-due to its complexity.
-Many summaries of backpropagation
-either assume a level of background knowledge that is unnecessary
-for understanding the algorithm
-or focus explicitly on implementation,
-leaving a working program but no insight...</description>
+			<title>{{writing.title}}</title>
+			<link>https://hhhhhhhhhn.com/writings/{{writing.title | simplify}}.html</link>
+			<guid>https://hhhhhhhhhn.com/writings/{{writing.title | simplify}}.html</guid>
+			<pubDate>{{writing.date.toUTCString()}}</pubDate>
+			<description>{{ (writing.html.split("</p>")[0] + "..</p>").split("</h1>")[1] | removeTags }}</description>
 		</item>
-
-		<item>
-			<title>A Reflection on Vim-like Text Editors</title>
-			<link>https://hhhhhhhhhn.com/writings/a-reflection-on-vim-like-text-editors.html</link>
-			<guid>https://hhhhhhhhhn.com/writings/a-reflection-on-vim-like-text-editors.html</guid>
-			<pubDate>Wed, 28 Dec 2022 11:49:53 GMT</pubDate>
-			<description>
-As a programmer, choosing the right text editor is crucial
-since you may spend several hours a day working in it.
-With so many options available,
-Vim-like text editors have gained a special reputation among enthusiasts.
-In this reflection,
-I would like to consider how these editors hold up to scrutiny
-and whether they still deserve their high status...</description>
-		</item>
-
-		<item>
-			<title>Rust is Nice</title>
-			<link>https://hhhhhhhhhn.com/writings/rust-is-nice.html</link>
-			<guid>https://hhhhhhhhhn.com/writings/rust-is-nice.html</guid>
-			<pubDate>Sat, 16 Jul 2022 21:58:24 GMT</pubDate>
-			<description>
-After putting it off for years,
-I finally learned Rust.
-Even though it has been the most loved programming language since 2016,
-I still could not get over the complex-appearing syntax.
-Luckily, I was planning on making a program in C and had a lot of free time,
-so I decided to do it in a new programming language.
-After quickly considering APL,
-I noticed that it was probably the time to learn Rust.
-Now I understand why people like it...</description>
-		</item>
-
-		<item>
-			<title>Markdown: A Patch for the Modern Web</title>
-			<link>https://hhhhhhhhhn.com/writings/markdown--a-patch-for-the-modern-web.html</link>
-			<guid>https://hhhhhhhhhn.com/writings/markdown--a-patch-for-the-modern-web.html</guid>
-			<pubDate>Tue, 05 Jul 2022 02:08:44 GMT</pubDate>
-			<description>
-I think it is no secret that websites have become worse with time.
-From ads to pop-ups to terrible load times,
-it seems that looking stuff up gets harder as every second goes by.
-People have tried to reform the Internet.
-Projects like Gopher1
-and Gemini come to mind.
-Although they have been very successful in their niches (including me),
-I find it hard to believe regular people are using them.
-I think the solution is often overlooked in between attempts to reinvent the wheel.
-It is a format that is already widely used: Markdown...</description>
-		</item>
-
-		<item>
-			<title>Approximating 𝑒 in 6½ Programming Languages</title>
-			<link>https://hhhhhhhhhn.com/writings/approximating----in-6--programming-languages.html</link>
-			<guid>https://hhhhhhhhhn.com/writings/approximating----in-6--programming-languages.html</guid>
-			<pubDate>Sat, 11 Jun 2022 21:45:23 GMT</pubDate>
-			<description>
-I often use programming languages to play around with mathematical problems,
-as they are often the fastest option to quickly iterate over ideas.
-I have used the usual scripting options, like Python, JavaScript, Julia, Go, and even bc.
-That left me wanting to compare some of them,
-but then I noticed I could use the opportunity to compare a more diverse range of languages.
-This is the result of the comparison...</description>
-		</item>
-
-		<item>
-			<title>Testing 3 Common Shell Optimizations</title>
-			<link>https://hhhhhhhhhn.com/writings/testing-3-common-shell-optimizations.html</link>
-			<guid>https://hhhhhhhhhn.com/writings/testing-3-common-shell-optimizations.html</guid>
-			<pubDate>Sun, 19 Dec 2021 13:48:44 GMT</pubDate>
-			<description>
-Although worrying about performance in shell scripts seems oxymoronic at first (at least to me),
-I have seen enough tips to become curious about the actual benefits of some of them.
-So, I decided to put three common ones to the test, with a few self-made benchmarks...</description>
-		</item>
-
+{% endfor %}
 </channel>
 </rss>
