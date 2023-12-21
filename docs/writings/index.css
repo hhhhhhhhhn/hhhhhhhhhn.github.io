@@ -40,9 +40,9 @@ p, ul, ol {
 	text-align: justify;
 	text-align-last: left;
 	font-size: Calc(0.5 * var(--fsize)) !important;
-  line-height: 1.8;
-  margin-top: 1.3em;
-  margin-bottom: 1.3em;
+	line-height: 1.8;
+	margin-top: 1.3em;
+	margin-bottom: 1.3em;
 	color: grey;
 }
 

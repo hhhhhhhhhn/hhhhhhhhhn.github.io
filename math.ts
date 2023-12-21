@@ -21,11 +21,11 @@ export async function renderAsciimath(input: string) {
 	let svg: string = result.svg
 
 	// Adds invisible text on top of the result, for copying and screen readers
-	svg = svg.replace(/<defs[^>]*>/, '<text text-length="100%" fill="transparent">' + escapeHTML(input) + "</text><defs>")
+	svg = svg.replace(/<defs.*?>/, '<text text-length="100%" fill="transparent">' + escapeHTML(input) + "</text><defs>")
+	svg = svg.replace(/<title.*?>.*?<\/title>/, "") // The default titles are invalid html. Thanks MathJax.
+	svg = svg.replaceAll("\n", "") // This makes sure that the SVG doesn't get split in different paragraphs
 	return svg
 }
-
-renderAsciimath("1+1")
 
 export async function mathPreprocess(input: string): Promise<string> {
 	let output = await replaceAsync(input, /\n```math\n([\S\s]*?)```/g,
@@ -40,14 +40,10 @@ export async function mathPreprocess(input: string): Promise<string> {
 	return output
 }
 
-// TODO: Move elsewhere
-export async function replaceAsync(str: string, regex: RegExp, asyncFn: Function): Promise<string> {
-	let promises: Promise<string>[] = []
-	// @ts-ignore
-	str.replace(regex, (match, ...args) => {
-		const promise = asyncFn(match, ...args)
-		promises.push(promise)
-	})
-	let data = await Promise.all(promises)
-	return str.replace(regex, () => data.shift() || "")
+export async function replaceAsync(string: string, regexp: RegExp, replacerFunction: Function) {
+    const replacements = await Promise.all(
+        Array.from(string.matchAll(regexp),
+            match => replacerFunction(...match)));
+    let i = 0;
+    return string.replace(regexp, () => replacements[i++]);
 }

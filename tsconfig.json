@@ -12,7 +12,7 @@
     "jsx": "react-jsx",
     "noEmit": false,
     "strict": true,
-    "moduleResolution": "node",
+    "moduleResolution": "node16", // Allows dynamic imports to work
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,

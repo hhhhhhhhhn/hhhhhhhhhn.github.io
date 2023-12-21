@@ -200,7 +200,7 @@ We can get some more insight by visualizing the algorithm.
 For example, this is how minimizing `math f(x) = x^3 + 3x^2` looks
 with a small learning rate of `math 0.04`:
 
-```!gnuplot | gifsicle -O1 | base64 -w0
+```!gnuplot 2>/dev/null | gifsicle -O1 | base64 -w0
 set term gif size 400, 400 animate delay 8
 
 f(x) = x**3 + 3*x**2
@@ -235,7 +235,7 @@ Nevertheless, you can overdo it,
 as learning rates that are too high make the algorithm bounce back and forth.
 For example, using `math alpha = 0.45` on the last example makes it behave erratically:
 
-```!gnuplot | gifsicle -O1 | base64 -w0
+```!gnuplot 2>/dev/null | gifsicle -O1 | base64 -w0
 set term gif size 400, 400 animate delay 32
 
 f(x) = x**3 + 3*x**2

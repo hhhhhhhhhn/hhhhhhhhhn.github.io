@@ -10,9 +10,19 @@ async function execAsync(command: string, stdin: string): Promise<string> {
 	process.stdout.on("data", (data) => {
 		output += data.toString()
 	})
-	return new Promise((resolve, _reject) => {
-		process.on("close", () => {
-			resolve(output)
+	let error = ""
+	return new Promise((resolve, reject) => {
+		process.on("close", (code) => {
+			if (code == 0) {
+				resolve(output)
+			}
+			else {
+				reject(error)
+			}
+		})
+		process.stderr.on("data", (data) => {
+			console.error(data.toString())
+			reject(`'${command}' failed with error: '${data.toString()}'`)
 		})
 	})
 }

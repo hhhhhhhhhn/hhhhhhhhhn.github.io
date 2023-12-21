@@ -12,7 +12,7 @@ import { Template } from "nunjucks"
 import common from "./common"
 import { mathPreprocess } from "./math"
 import { shellPreprocess } from "./shell"
-import d3 from "d3-force"
+
 
 const nunjucks = new (require('nunjucks')).Environment()
 
@@ -206,6 +206,10 @@ function normalizeNodes(nodes: any[]) {
 }
 
 async function generateGraph(tags: Record<string, string[]>, projects: Record<string, Project>) {
+	let module = "d3-force"
+	const d3import = import(module) // Must be dynamic import, or node breaks
+	let d3 = await d3import
+
 	let nodes = nodesFromTags(tags)
 	let links = getTagLinks(projects)
 	// @ts-ignore

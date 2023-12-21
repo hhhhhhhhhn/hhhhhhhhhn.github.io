@@ -18,39 +18,22 @@
 			<div
 				class="link"
 				style="
-					--width: Calc({{link.length}}vw * 80);
+					--width: Calc(vw * 80);
 					width: var(--width);
 					background-color: black;
 					height: 3px;
-					left: Calc(Calc(Calc({{link.x * 100}}vw - Calc(var(--width) / 2)) * 0.8) + 10vw);
-					top: Calc(Calc(Calc({{link.y * 100}}vh - 2px) * 0.8) + 10vh);
+					left: Calc(Calc(Calc(NaNvw - Calc(var(--width) / 2)) * 0.8) + 10vw);
+					top: Calc(Calc(Calc(NaNvh - 2px) * 0.8) + 10vh);
 					transform-origin: 50% 1.5px;
-					transform: rotate({{180-link.angle}}deg);
+					transform: rotate(NaNdeg);
 					"
 			></div>
 		% endfor %}
 		--!>
-		{% for node in nodes %}
-			<a href="{{ node.tagName | simplify }}.html">
-				<div
-					class="node"
-					id="{{node.tagName}}"
-					style="
-						--radius: Calc({{2 * Math.pow(1.03, node.titles.length)}} * var(--fsize));
-						width: var(--radius);
-						height: var(--radius);
-						left: Calc(Calc(Calc({{node.x * 100}}vw - Calc(var(--radius) / 2)) * 0.8) + 10vw);
-						top: Calc(Calc(Calc({{node.y * 100}}vh - Calc(var(--radius) / 2)) * 0.8) + 10vh);
-						font-size: Calc(var(--radius) / 7);
-						"
-				>{{node.tagName.replace("/", "/ ")}}</div>
-			</a>
-		{% endfor %}
+		
 	<div>
 	<!--<p>
-		{% for tag, value in tags %}
-		<a href="{{ tag | simplify }}.html">{{ tag }}</a><span>, </span>
-		{% endfor %}
+		
 	</p>-->
 </body>
 
