@@ -225,8 +225,8 @@ async function generateGraph(tags: Record<string, string[]>, projects: Record<st
 }
 
 async function renderTagIndex(tags: Record<string, string[]>, projects: Record<string, Project>) {
-	let [nodes, links] = await generateGraph(tags, projects)
-	renderTemplate("src/projects/tags.html", "docs/projects/tags.html", {nodes, links, Math})
+	let nodes = await generateGraph(tags, projects)
+	renderTemplate("src/projects/tags.html", "docs/projects/tags.html", {nodes, Math})
 }
 
 ////////////////////////////// Writings section ///////////////////////////////
