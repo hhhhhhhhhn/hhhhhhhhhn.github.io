@@ -5,8 +5,20 @@
 	<title>hhhhhhhhhn</title>
 	<link>https://hhhhhhhhhn.com/writings</link>
 	<description>hhhhhhhhhn's writings</description>
-	<lastBuildDate>Fri, 22 Dec 2023 01:33:57 GMT</lastBuildDate>
+	<lastBuildDate>Tue, 06 Feb 2024 18:58:43 GMT</lastBuildDate>
 	<language>en-us</language>
+
+		<item>
+			<title>Understanding RSA</title>
+			<link>https://hhhhhhhhhn.com/writings/understanding-rsa.html</link>
+			<guid>https://hhhhhhhhhn.com/writings/understanding-rsa.html</guid>
+			<pubDate>Tue, 06 Feb 2024 18:31:19 GMT</pubDate>
+			<description>
+RSA is a beautifully simple algorithm for asymmetric encryption,
+which uses the properties of modular arithmetic to transmit small messages securely.
+This article presents a possible thought process from which the algorithm could be derived,
+based on some key mathematical facts...</description>
+		</item>
 
 		<item>
 			<title>Understanding Backpropagation with Simple Derivatives</title>
