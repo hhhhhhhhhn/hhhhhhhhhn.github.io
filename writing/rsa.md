@@ -182,7 +182,7 @@ without the private decryption key `math d`.
 Since we know it, we can decrypt it just as easily as it was encrypted:
 
 ```math
-m ≡ "encrypted message"^d " (mod n)"
+m ≡ ("encrypted message")^d " (mod n)"
 ```
 
 And thus, we have gotten back the original message,
