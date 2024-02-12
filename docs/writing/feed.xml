@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-	<atom:link href="https://hhhhhhhhhn.com/writings/feed.xml" rel="self" type="application/rss+xml"/>
+	<atom:link href="https://hhhhhhhhhn.com/writing/feed.xml" rel="self" type="application/rss+xml"/>
 	<title>hhhhhhhhhn</title>
-	<link>https://hhhhhhhhhn.com/writings</link>
-	<description>hhhhhhhhhn's writings</description>
-	<lastBuildDate>Mon, 12 Feb 2024 14:43:04 GMT</lastBuildDate>
+	<link>https://hhhhhhhhhn.com/writing</link>
+	<description>hhhhhhhhhn's writing</description>
+	<lastBuildDate>Mon, 12 Feb 2024 14:48:54 GMT</lastBuildDate>
 	<language>en-us</language>
 
 		<item>
 			<title>Understanding RSA</title>
-			<link>https://hhhhhhhhhn.com/writings/understanding-rsa.html</link>
-			<guid>https://hhhhhhhhhn.com/writings/understanding-rsa.html</guid>
+			<link>https://hhhhhhhhhn.com/writing/understanding-rsa.html</link>
+			<guid>https://hhhhhhhhhn.com/writing/understanding-rsa.html</guid>
 			<pubDate>Tue, 06 Feb 2024 18:31:19 GMT</pubDate>
 			<description>
 RSA is a beautifully simple algorithm for asymmetric encryption,
@@ -22,8 +22,8 @@ based on some key mathematical facts...</description>
 
 		<item>
 			<title>Understanding Backpropagation with Simple Derivatives</title>
-			<link>https://hhhhhhhhhn.com/writings/understanding-backpropagation-with-simple-derivatives.html</link>
-			<guid>https://hhhhhhhhhn.com/writings/understanding-backpropagation-with-simple-derivatives.html</guid>
+			<link>https://hhhhhhhhhn.com/writing/understanding-backpropagation-with-simple-derivatives.html</link>
+			<guid>https://hhhhhhhhhn.com/writing/understanding-backpropagation-with-simple-derivatives.html</guid>
 			<pubDate>Wed, 25 Jan 2023 19:33:23 GMT</pubDate>
 			<description>
 Backpropagation is the backbone of deep learning,
@@ -40,8 +40,8 @@ leaving a working program but no insight...</description>
 
 		<item>
 			<title>A Reflection on Vim-like Text Editors</title>
-			<link>https://hhhhhhhhhn.com/writings/a-reflection-on-vim-like-text-editors.html</link>
-			<guid>https://hhhhhhhhhn.com/writings/a-reflection-on-vim-like-text-editors.html</guid>
+			<link>https://hhhhhhhhhn.com/writing/a-reflection-on-vim-like-text-editors.html</link>
+			<guid>https://hhhhhhhhhn.com/writing/a-reflection-on-vim-like-text-editors.html</guid>
 			<pubDate>Wed, 28 Dec 2022 11:49:53 GMT</pubDate>
 			<description>
 As a programmer, choosing the right text editor is crucial
@@ -55,8 +55,8 @@ and whether they still deserve their high status...</description>
 
 		<item>
 			<title>Rust is Nice</title>
-			<link>https://hhhhhhhhhn.com/writings/rust-is-nice.html</link>
-			<guid>https://hhhhhhhhhn.com/writings/rust-is-nice.html</guid>
+			<link>https://hhhhhhhhhn.com/writing/rust-is-nice.html</link>
+			<guid>https://hhhhhhhhhn.com/writing/rust-is-nice.html</guid>
 			<pubDate>Sat, 16 Jul 2022 21:58:24 GMT</pubDate>
 			<description>
 After putting it off for years,
@@ -72,8 +72,8 @@ Now I understand why people like it...</description>
 
 		<item>
 			<title>Markdown: A Patch for the Modern Web</title>
-			<link>https://hhhhhhhhhn.com/writings/markdown--a-patch-for-the-modern-web.html</link>
-			<guid>https://hhhhhhhhhn.com/writings/markdown--a-patch-for-the-modern-web.html</guid>
+			<link>https://hhhhhhhhhn.com/writing/markdown--a-patch-for-the-modern-web.html</link>
+			<guid>https://hhhhhhhhhn.com/writing/markdown--a-patch-for-the-modern-web.html</guid>
 			<pubDate>Tue, 05 Jul 2022 02:08:44 GMT</pubDate>
 			<description>
 I think it is no secret that websites have become worse with time.
@@ -90,8 +90,8 @@ It is a format that is already widely used: Markdown...</description>
 
 		<item>
 			<title>Approximating 𝑒 in 6½ Programming Languages</title>
-			<link>https://hhhhhhhhhn.com/writings/approximating----in-6--programming-languages.html</link>
-			<guid>https://hhhhhhhhhn.com/writings/approximating----in-6--programming-languages.html</guid>
+			<link>https://hhhhhhhhhn.com/writing/approximating----in-6--programming-languages.html</link>
+			<guid>https://hhhhhhhhhn.com/writing/approximating----in-6--programming-languages.html</guid>
 			<pubDate>Sat, 11 Jun 2022 21:45:23 GMT</pubDate>
 			<description>
 I often use programming languages to play around with mathematical problems,
@@ -104,8 +104,8 @@ This is the result of the comparison...</description>
 
 		<item>
 			<title>Testing 3 Common Shell Optimizations</title>
-			<link>https://hhhhhhhhhn.com/writings/testing-3-common-shell-optimizations.html</link>
-			<guid>https://hhhhhhhhhn.com/writings/testing-3-common-shell-optimizations.html</guid>
+			<link>https://hhhhhhhhhn.com/writing/testing-3-common-shell-optimizations.html</link>
+			<guid>https://hhhhhhhhhn.com/writing/testing-3-common-shell-optimizations.html</guid>
 			<pubDate>Sun, 19 Dec 2021 13:48:44 GMT</pubDate>
 			<description>
 Although worrying about performance in shell scripts seems oxymoronic at first (at least to me),

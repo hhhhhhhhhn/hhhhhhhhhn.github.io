@@ -63,10 +63,10 @@ h1 a {
 #cube {
 	--rx: 0deg;
 	--ry: 0deg;
-	
+
 	--rz: 0deg;
 	--faceZ: 10vw;
-	
+
 	width: 100%;
 	height: 100%;
 	position: relative;

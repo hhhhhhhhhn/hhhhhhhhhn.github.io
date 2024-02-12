@@ -14,7 +14,7 @@ export type Writing = {
 
 export async function getWritings(): Promise<Writing[]> {
 	let writings = []
-	for(let file of ls("writings/*")) {
+	for(let file of ls("writing/*")) {
 		if (file.full.slice(-3) == ".md") {
 			let writingText = readFileSync(file.full, "utf-8")
 			writings.push(await parseWriting(writingText))
@@ -39,8 +39,8 @@ async function parseWriting(text: string): Promise<Writing> {
 export function renderWritings(writings: Writing[]) {
 	for(let writing of writings) {
 		renderTemplate(
-			"src/writings/writing.temp.html",
-			`docs/writings/${simplify(writing.title)}.html`,
+			"src/writing/writing.temp.html",
+			`docs/writing/${simplify(writing.title)}.html`,
 			{
 				writing
 			}
@@ -49,10 +49,10 @@ export function renderWritings(writings: Writing[]) {
 }
 
 export function renderWritingIndex(writings: Writing[]) {
-	renderTemplate("src/writings/index.html", "docs/writings/index.html", {writings})
+	renderTemplate("src/writing/index.html", "docs/writing/index.html", {writings})
 }
 
 export function renderXML(writings: Writing[], date: Date) {
-	renderTemplate("src/writings/feed.xml", "docs/writings/feed.xml", {writings, date})
+	renderTemplate("src/writing/feed.xml", "docs/writing/feed.xml", {writings, date})
 }
 

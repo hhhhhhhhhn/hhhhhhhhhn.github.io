@@ -5,8 +5,8 @@ import {getProjects, renderProjectsIndex, getTags, renderTags, renderTagIndex} f
 
 async function main() {
 	copySync("src/", "docs/")
-	copySync("writings/assets/", "docs/writings/assets/")
-	copySync("writings/assets/", "docs/md/writings/assets/")
+	copySync("writing/assets/", "docs/writing/assets/")
+	copySync("writing/assets/", "docs/md/writing/assets/")
 	let projects = await getProjects()
 	let tags = getTags(projects)
 	let writings = await getWritings()
