@@ -78,6 +78,7 @@ img {
 	align-self: center;
 }
 
+
 .small {
 	margin-left: 30vw;
 	width: 20vw;
@@ -91,6 +92,26 @@ img {
 .large {
 	margin-left: 10vw;
 	width: 60vw;
+}
+
+@media(max-aspect-ratio: 1/1) {
+	img {
+		margin-left: 0;
+		margin-right: 0;
+		width: 80vw;
+	}
+
+	.small {
+		margin-left: 10vw;
+		margin-right: 10vw;
+		width: 60vw;
+	}
+
+	.medium, .large {
+		margin-left: 0;
+		margin-right: 0;
+		width: 80vw;
+	}
 }
 
 hr {
