@@ -29,6 +29,7 @@ A small neural network may look something like this:
 digraph math {
   bgcolor=transparent
 	rankdir="LR"
+    node [color = "#ffffff", fontcolor="#ffffff"]
 	splines = false
 	subgraph l0 {
 		node [shape = "circle"]
@@ -55,7 +56,7 @@ digraph math {
 		z0 [label = <z<sub>0</sub>>]
 		z1 [label = <z<sub>1</sub>>]
 	}
-	{x0;x1} -> {y0;y1;y2} -> {z0;z1} [arrowsize=0.2, color = "#666666"]
+	{x0;x1} -> {y0;y1;y2} -> {z0;z1} [arrowsize=0.2, color = "#808080"]
 }
 !<img class="small" alt="Neural net" src="data:image/svg+xml;base64,{}">
 ```
@@ -159,7 +160,7 @@ plot f(x) lc black title "f(1)", [px-0.5:px+0.5] tf(px, x) lc "#00ffff" lw 3 tit
 px = 0
 plot f(x) lc black title "f(0)", [px-0.5:px+0.5] tf(px, x) lc "#00ffff" lw 3 title "f'(0)"
 
-!<img class="large" alt="Function slopes" src="data:image/png;base64,{}">
+!<img class="large invert-filter" alt="Function slopes" src="data:image/png;base64,{}">
 ```
 
 If the minimum is to the left of the `math x` value,
@@ -218,7 +219,7 @@ do for [t=0:50] {
 	px = px - 0.04 * df(px)
 	plot f(x) lc black title "f(x)", [px-0.5:px+0.5] tf(px, x) lc "#00ffff" lw 3 title "f'(x)"
 }
-!<img alt="Gradient descent animation" class="medium" src="data:image/gif;base64,{}">
+!<img alt="Gradient descent animation" class="medium invert-filter" src="data:image/gif;base64,{}">
 ```
 
 There are two notable behaviors.
@@ -253,7 +254,7 @@ do for [t=0:50] {
 	px = px - 0.45 * df(px)
 	plot f(x) lc black title "f(x)", [px-0.5:px+0.5] tf(px, x) lc "#00ffff" lw 3 title "f'(x)"
 }
-!<img alt="Gradient descent with learning rate too high" class="medium" src="data:image/gif;base64,{}">
+!<img alt="Gradient descent with learning rate too high" class="medium invert-filter" src="data:image/gif;base64,{}">
 ```
 
 Now that we know how to minimize a function,
@@ -317,6 +318,8 @@ We can visualize these derivatives like this:
 ```!twopi -Tsvg | base64 -w0
 digraph {
   bgcolor=transparent
+  node [fontcolor="#ffffff", color="#ffffff"]
+  edge [fontcolor="#ffffff", color="#ffffff"]
   rankdir="RL"
   node[shape=none]
   nodesep=1
@@ -342,6 +345,8 @@ We can see the relationship using the same visualization:
 ```!dot -Tsvg | base64 -w0
 digraph {
   rankdir="LR"
+  node [fontcolor="#ffffff", color="#ffffff"]
+  edge [fontcolor="#ffffff", color="#ffffff"]
   bgcolor=transparent
   node[shape=none]
   a -> b -> c
@@ -369,6 +374,8 @@ But consider the meaning of the graph with our derivatives:
 digraph {
   rankdir="LR"
   bgcolor=transparent
+  node [fontcolor="#ffffff", color="#ffffff"]
+  edge [fontcolor="#ffffff", color="#ffffff"]
   node[shape=none]
   a -> b [label=<12a<sup>3</sup>>]
   b -> c [label="cos(b)"]
@@ -398,6 +405,8 @@ For example, with four variables:
 digraph {
   rankdir="LR"
   bgcolor=transparent
+  node [fontcolor="#ffffff", color="#ffffff"]
+  edge [fontcolor="#ffffff", color="#ffffff"]
   node[shape=none]
   a -> b -> c -> d
 }
@@ -428,10 +437,12 @@ How do you calculate `math (del d)/(del a)`? The shape of the graph is different
 ```!dot -Tsvg | base64 -w0
 digraph {
   bgcolor=transparent
+  node [fontcolor="#ffffff", color="#ffffff"]
+  edge [fontcolor="#ffffff", color="#ffffff"]
   rankdir="LR"
   node[shape=none]
-  a -> b -> d [color=yellow]
-  a -> c -> d [color=magenta]
+  a -> b -> d [color=blue]
+  a -> c -> d [color=lime]
 }
 !<img class="medium" alt="a to b to d and a to c to d" src="data:image/svg+xml;base64,{}">
 ```
@@ -463,8 +474,10 @@ in this simple neural network:
 
 ```!dot -Tsvg | base64 -w0
 digraph math {
-  bgcolor=transparent
-	rankdir="LR"
+    bgcolor=transparent
+    rankdir="LR"
+    node [fontcolor="#ffffff", color="#ffffff"]
+    edge [fontcolor="#ffffff", color="#ffffff"]
 	splines = false
 	subgraph li {
 		node [shape = "circle"]
@@ -477,7 +490,7 @@ digraph math {
 		rank = "same"
 		rankdir = "BT"
 		x0 -> x1 [style="invis"]
-		x0 [label = <x<sub>0</sub>>, color=cyan]
+		x0 [label = <x<sub>0</sub>>, color=red]
 		x1 [label = <x<sub>1</sub>>]
 	}
 	subgraph l1 {
@@ -485,25 +498,25 @@ digraph math {
 		rank = "same"
 		rankdir = "BT"
 		y0 -> y1 -> y2 [style="invis"]
-		y0 [label = <y<sub>0</sub>>, color=cyan]
-		y1 [label = <y<sub>1</sub>>, color=cyan]
-		y2 [label = <y<sub>2</sub>>, color=cyan]
+		y0 [label = <y<sub>0</sub>>, color=red]
+		y1 [label = <y<sub>1</sub>>, color=red]
+		y2 [label = <y<sub>2</sub>>, color=red]
 	}
 	subgraph l2 {
 		node [shape = "circle"]
 		rank = "same"
 		rankdir = "BT"
 		z0 -> z1 [style="invis"]
-		z0 [label = <z<sub>0</sub>>, color=cyan]
-		z1 [label = <z<sub>1</sub>>, color=cyan]
+		z0 [label = <z<sub>0</sub>>, color=red]
+		z1 [label = <z<sub>1</sub>>, color=red]
 	}
-  E [shape=none, label="E (MSE)"]
-  w0 -> x0 [arrowsize = 0.2, color=magenta]
-	{w0} -> {x1} [arrowsize=0.2, color = "#666666"]
-  {x0} -> {y0;y1;y2} [arrowsize = 0.2, color=cyan]
-  {x1} -> {y0;y1;y2} [arrowsize=0.2, color = "#666666"]
-  {y0;y1;y2} -> {z0;z1} [arrowsize=0.2, color = cyan]
-  {z0; z1} -> E [style=dotted, arrowsize=0.2, color=cyan]
+    E [shape=none, label="E (MSE)"]
+    w0 -> x0 [arrowsize = 0.2, color=lime]
+    {w0} -> {x1} [arrowsize=0.2, color = "#666666"]
+    {x0} -> {y0;y1;y2} [arrowsize = 0.2, color=red]
+    {x1} -> {y0;y1;y2} [arrowsize=0.2, color = "#666666"]
+    {y0;y1;y2} -> {z0;z1} [arrowsize=0.2, color = red]
+    {z0; z1} -> E [style=dotted, arrowsize=0.2, color=red]
 }
 !<img alt="Relationship from the weight to the error" src="data:image/svg+xml;base64,{}">
 ```
@@ -569,6 +582,8 @@ and looks like this:
 digraph math {
   bgcolor=transparent
 	rankdir="LR"
+    node [fontcolor="#ffffff", color="#ffffff"]
+    edge [fontcolor="#ffffff", color="#ffffff"]
 	splines = false
 	subgraph input {
 		node [shape = "circle"]
@@ -599,7 +614,7 @@ digraph math {
 	{rank=same; inputlabel x0}
 	outputlabel -> y0 [style=invis, len=0.01]
 	{rank=same; outputlabel y0}
-	{x0;x1;x2;x3;xi} -> {y0;y1;y2;yj} [arrowsize=0.2, color = "#666666"]
+	{x0;x1;x2;x3;xi} -> {y0;y1;y2;yj} [arrowsize=0.2, color = "#808080"]
 }
 !<img id="fullyconnected" class="small" alt="Fully Connected Layer" src="data:image/svg+xml;base64,{}">
 ```
@@ -616,9 +631,11 @@ It has a simpler structure and no trainable parameters:
 
 ```!dot -Tsvg | base64 -w0
 digraph math {
-  bgcolor=transparent
+    bgcolor=transparent
 	rankdir="LR"
 	splines = false
+    node [fontcolor="#ffffff", color="#ffffff"]
+    edge [fontcolor="#ffffff", color="#ffffff"]
 	subgraph input {
 		node [shape = "circle"]
 		rank = "same"
@@ -647,10 +664,10 @@ digraph math {
 	{rank=same; inputlabel x0}
 	outputlabel -> y0 [style=invis, len=0.01]
 	{rank=same; outputlabel y0}
-	x0 -> y0 [arrowsize=0.2, color = "#666666"]
-	x1 -> y1 [arrowsize=0.2, color = "#666666"]
-	x2 -> y2 [arrowsize=0.2, color = "#666666"]
-	xi -> yj [arrowsize=0.2, color = "#666666"]
+	x0 -> y0 [arrowsize=0.2, color = "#808080"]
+	x1 -> y1 [arrowsize=0.2, color = "#808080"]
+	x2 -> y2 [arrowsize=0.2, color = "#808080"]
+	xi -> yj [arrowsize=0.2, color = "#808080"]
 }
 !<img class="small" alt="Activation Layer" src="data:image/svg+xml;base64,{}">
 ```
@@ -689,24 +706,26 @@ we have this situation:
 
 ```!dot -Tsvg | base64 -w0
 digraph math {
-  bgcolor=transparent
-  rankdir="LR"
-  node [shape=none]
-  x [label = <x<sub>i</sub>>]
-  y0 [label = <y<sup>0</sup>>]
-  y1 [label = <y<sup>1</sup>>]
-  y2 [label = <y<sup>2</sup>>]
-  ye [label = "⋮", shape=none]
-  yj [label = <y<sup>j</sup>>]
+    bgcolor=transparent
+    node [fontcolor="#ffffff", color="#ffffff"]
+    edge [fontcolor="#ffffff", color="#ffffff"]
+    rankdir="LR"
+    node [shape=none]
+    x [label = <x<sub>i</sub>>]
+    y0 [label = <y<sup>0</sup>>]
+    y1 [label = <y<sup>1</sup>>]
+    y2 [label = <y<sup>2</sup>>]
+    ye [label = "⋮", shape=none]
+    yj [label = <y<sup>j</sup>>]
 
-  x -> y0
-  x -> y1
-  x -> y2
-  x -> ye [style=invis]
-  x -> yj
+    x -> y0
+    x -> y1
+    x -> y2
+    x -> ye [style=invis]
+    x -> yj
 
-  {y0;y1;y2;yj} -> E
-  ye -> E [style=invis]
+    {y0;y1;y2;yj} -> E
+    ye -> E [style=invis]
 }
 !<img class="medium" alt="Variables of FCN backpropagation" src="data:image/svg+xml;base64,{}">
 ```
@@ -749,13 +768,15 @@ so the relationship is very simple:
 
 ```!dot -Tsvg | base64 -w0
 digraph math {
-  bgcolor=transparent
-  rankdir="LR"
-  node [shape=none]
-  w[label = <w<sub>i</sub><sup>j</sup>>]
-  y[label = <y<sup>j</sup>>]
+    bgcolor=transparent
+    node [fontcolor="#ffffff", color="#ffffff"]
+    edge [fontcolor="#ffffff", color="#ffffff"]
+    rankdir="LR"
+    node [shape=none]
+    w[label = <w<sub>i</sub><sup>j</sup>>]
+    y[label = <y<sup>j</sup>>]
 
-  w -> y -> E
+    w -> y -> E
 }
 !<img class="medium" alt="Variables in δE/δw" src="data:image/svg+xml;base64,{}">
 ```
@@ -781,13 +802,15 @@ The relationship is the same as the weight:
 
 ```!dot -Tsvg | base64 -w0
 digraph math {
-  bgcolor=transparent
-  rankdir="LR"
-  node [shape=none]
-  b[label = <b<sup>j</sup>>]
-  y[label = <y<sup>j</sup>>]
+    bgcolor=transparent
+    node [fontcolor="#ffffff", color="#ffffff"]
+    edge [fontcolor="#ffffff", color="#ffffff"]
+    rankdir="LR"
+    node [shape=none]
+    b[label = <b<sup>j</sup>>]
+    y[label = <y<sup>j</sup>>]
 
-  b -> y -> E
+    b -> y -> E
 }
 !<img class="medium" alt="Variables in δE/δb" src="data:image/svg+xml;base64,{}">
 ```
@@ -836,13 +859,15 @@ The relationship to the error is straightforward:
 
 ```!dot -Tsvg | base64 -w0
 digraph math {
-  bgcolor=transparent
-  rankdir="LR"
-  node [shape=none]
-  x[label = <x<sub>i</sub>>]
-  y[label = <y<sup>i</sup>>]
+    bgcolor=transparent
+    node [fontcolor="#ffffff", color="#ffffff"]
+    edge [fontcolor="#ffffff", color="#ffffff"]
+    rankdir="LR"
+    node [shape=none]
+    x[label = <x<sub>i</sub>>]
+    y[label = <y<sup>i</sup>>]
 
-  x -> y -> E
+    x -> y -> E
 }
 !<img class="medium" alt="Propagating backwards an activation layer" src="data:image/svg+xml;base64,{}">
 ```
@@ -868,10 +893,12 @@ like this one:
 
 ```!dot -Tsvg | base64 -w0
 digraph math {
-  bgcolor=transparent
+    bgcolor=transparent
+    node [fontcolor="#ffffff", color="#ffffff"]
+    edge [fontcolor="#ffffff", color="#ffffff"]
 	rankdir="LR"
 	splines = false
-  subgraph lm1 {
+    subgraph lm1 {
 		node [shape = "circle"]
 		rank = "same"
 		rankdir = "BT"
@@ -879,7 +906,7 @@ digraph math {
 		i0 [label = <i<sub>0</sub>>]
 		i1 [label = <i<sub>1</sub>>]
 		i2 [label = <i<sub>2</sub>>]
-  }
+    }
 	subgraph l0 {
 		node [shape = "circle"]
 		rank = "same"
@@ -908,17 +935,17 @@ digraph math {
 		d0 [label = <o<sub>0</sub>>]
 		d1 [label = <o<sub>1</sub>>]
 	}
-  i0 -> a0 [arrowsize=0.2, color = "#666666", label="0.5"]
-  i1 -> a0 [arrowsize=0.2, color = "#666666", label="1"]
-  i2 -> a0 [arrowsize=0.2, color = "#666666", label="-0.5"]
+    i0 -> a0 [arrowsize=0.2, color = "#808080", label="0.5"]
+    i1 -> a0 [arrowsize=0.2, color = "#808080", label="1"]
+    i2 -> a0 [arrowsize=0.2, color = "#808080", label="-0.5"]
 
-	a0 -> b0 [arrowsize=0.2, color = "#666666", style=dashed]
+	a0 -> b0 [arrowsize=0.2, color = "#808080", style=dashed]
 
-	b0 -> c0 [arrowsize=0.2, color = "#666666", label="-1"]
-	b0 -> c1 [arrowsize=0.2, color = "#666666", label="1"]
+	b0 -> c0 [arrowsize=0.2, color = "#808080", label="-1"]
+	b0 -> c1 [arrowsize=0.2, color = "#808080", label="1"]
 
-	c0 -> d0 [arrowsize=0.2, color = "#666666", style=dashed]
-	c1 -> d1 [arrowsize=0.2, color = "#666666", style=dashed]
+	c0 -> d0 [arrowsize=0.2, color = "#808080", style=dashed]
+	c1 -> d1 [arrowsize=0.2, color = "#808080", style=dashed]
 }
 !<img alt="Neural networks" src="data:image/svg+xml;base64,{}">
 ```
@@ -935,11 +962,13 @@ Evaluating the network does not give us the result we want:
 
 ```!dot -Tsvg | base64 -w0
 digraph math {
-  bgcolor=transparent
+    bgcolor=transparent
+    node [fontcolor="#ffffff", color="#ffffff"]
+    edge [fontcolor="#ffffff", color="#ffffff"]
 	rankdir="LR"
 	splines = false
-  node[fixedsize=true]
-  subgraph lm1 {
+    node[fixedsize=true]
+    subgraph lm1 {
 		node [shape = "circle"]
 		rank = "same"
 		rankdir = "BT"
@@ -947,7 +976,7 @@ digraph math {
 		i0 [label = "1"]
 		i1 [label = "0.5"]
 		i2 [label = "1"]
-  }
+    }
 	subgraph l0 {
 		node [shape = "circle"]
 		rank = "same"

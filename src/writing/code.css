@@ -2,9 +2,18 @@ code, code span {
 	overflow: hidden;
 	width: 80vw;
 	font-size: inherit;
-	background-color: #EEEEEE;
+	background-color: #111111;
 	tab-size: 4;
-	color: #666;
+	color: #9f9f9f;
+}
+
+pre {
+	background-color: #111111;
+	overflow: auto;
+	scrollbar-color: var(--p-color) #111111;
+	scrollbar-width: thin;
+	font-size: Calc(0.4 * var(--fsize)) !important;
+	padding: .7em;
 }
 
 .hljs-keyword {
@@ -23,16 +32,16 @@ code, code span {
 .hljs-variable,
 .hljs-template-tag,
 .hljs-template-variable {
-	color: #000000;
+	color: #ffffff;
 }
 
 .hljs-string,
 .hljs-number {
-	color: #666666;
+	color: #999999;
 }
 
 .hljs-comment, .hljs-quote {
-	color: #AAAAAA;
+	color: #555555;
 	font-style: italic;
 }
 

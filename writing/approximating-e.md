@@ -170,7 +170,7 @@ which has both a typed and untyped version.
 
 (bf-precision 100000)
 
-(define (E k) 
+(define (E k)
   (define approx (bf+ (bf 1) (bfexp2 (bf (- k)))))
   (for ([i (in-range k)])
     (set! approx (bf* approx approx))
@@ -293,7 +293,7 @@ and actually managed to approximate 𝑒 with 100 000 binary bits to 10 000 iter
 For those that did not, I did the test on a smaller scale and extrapolated the results,
 giving them the benefit of the doubt.
 
-![Prolog Loses](./assets/approximating-e/bargraph1.png)
+![Prolog Loses](./assets/approximating-e/bargraph1.png){.invert-filter}
 
 As expected, the languages without BigFloat libraries did the worst.
 Doing it with arbitrary precision fixed-point was slow,
@@ -305,7 +305,7 @@ It is not made for this.
 
 Eliminating Prolog and Forth:
 
-![C, Julia, Racket and Go](./assets/approximating-e/bargraph2.png)
+![C, Julia, Racket and Go](./assets/approximating-e/bargraph2.png){.invert-filter}
 
 As expected, C came first, by a bit over 0.3 seconds, including compilation time.
 It is the result of sacrificing readability for performance.
@@ -345,7 +345,7 @@ Do not do maths in Go, I guess.
 
 2. For the math people: {#algorithm}
 
-![Mathematical algorithm](./assets/approximating-e/mathematical.svg){.small}
+![Mathematical algorithm](./assets/approximating-e/mathematical.svg){.small .invert-filter}
 
 3. In reality, this is not much of a problem.
    If I was using BigFloats for anything serious,

@@ -13,7 +13,7 @@ body {
 
 .article-link {
 	text-decoration: none;
-	color: grey !important;
+	color: var(--p-color) !important;
 }
 
 .footnote {
@@ -36,14 +36,16 @@ h3 {
 	font-weight: normal;
 }
 
-p, ul, ol {
+p, ol, ul {
 	text-align: justify;
 	text-align-last: left;
 	font-size: Calc(0.5 * var(--fsize)) !important;
 	line-height: 1.8;
+}
+
+p {
 	margin-top: 1.3em;
 	margin-bottom: 1.3em;
-	color: grey;
 }
 
 a, b, strong, i, em, li, ol, li::marker {
@@ -55,15 +57,8 @@ ol li::marker {
 }
 
 a h1 {
-	color: black;
+	color: var(--h-color);
 	text-decoration: none;
-}
-
-pre {
-	background-color: #EEEEEE;
-	overflow: hidden;
-	font-size: Calc(0.4 * var(--fsize)) !important;
-	padding: .7em;
 }
 
 video {
@@ -116,16 +111,17 @@ img {
 
 hr {
 	border: 0px;
-	border-top: 2px solid grey;
+	border-top: 2px solid var(--p-color);
 }
 
 table, tr, td, th {
-	border: 2px solid grey;
+	border: 2px solid var(--p-color);
 	border-collapse: collapse;
 	font-size: Calc(0.7 * var(--fsize)) !important;
 	/* table-layout: fixed; */
 	width: 60%;
-	margin-left: 20%;
+	margin-inline: auto;
+	color: var(--h-color);
 }
 
 tr {
@@ -143,17 +139,6 @@ tr {
 	text-decoration: none;
 }
 
-#background-invert {
-	z-index: 100;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	backdrop-filter: invert(1);
-	pointer-events: none;
-}
-
 h1, h2, h3, h4 {
 	filter: url(#filter);
 }
@@ -164,11 +149,11 @@ hr {
 }
 
 a, a:visited {
-	color: #555;
+	color: var(--ph-color);
 }
 
 a:hover {
-	color: #222;
+	color: var(--h-color);
 	filter: url(#filter);
 }
 
@@ -194,19 +179,19 @@ a:hover {
 }
 
 .math-inline {
-  margin-top: -0.4em;
-  margin-bottom: -0.1em;
+	margin-top: -0.4em;
+	margin-bottom: -0.1em;
 	display: inline-block;
 }
 
 .math-inline svg {
 	font-size: 50%;
-  max-height: 2em;
-  width: auto;
+	max-height: 2em;
+	width: auto;
 }
 
 .math-inline svg, .math-block svg {
-	color: #444;
+	color: var(--ph-color);
 }
 
 .math-block svg {

@@ -12,8 +12,7 @@
 	<link rel="stylesheet" href="./code.css">
 </head>
 
-<body>
-	<div id="background-invert"></div>
+<body class="theme-invert">
 	<div id="back-button">
 		<a href="./">&lt;</a>
 	</div>
@@ -38,14 +37,14 @@ It uses two modes:
 a command mode, for entering commands,
 and an input mode, for writing the actual text.
 A typical session in ed may look something like this:</p>
-<p><a href="https://asciinema.org/a/ElikIvoSsBcUH6cAo8qbgMamG" class="invert-filter"><img src="https://asciinema.org/a/ElikIvoSsBcUH6cAo8qbgMamG.svg" alt="ed asciicast" class="medium"></a></p>
+<p><a href="https://asciinema.org/a/ElikIvoSsBcUH6cAo8qbgMamG"><img src="https://asciinema.org/a/ElikIvoSsBcUH6cAo8qbgMamG.svg" alt="ed asciicast" class="medium"></a></p>
 <p>Following this release, in 1976, an extended version of ed was published, called ex.
 One of the key new features it included was a new mode, called visual mode,
 accessible through the <code>vi</code> command.
 This mode allowed you to get a live preview of the changes you were making,
 improving on the command-line-only interface of ed.
 The modal text editor experience was changing dramatically:</p>
-<p><a href="https://asciinema.org/a/hvgTlMfyeSj4ET4Lrm2tbWzbG" class="invert-filter"><img src="https://asciinema.org/a/hvgTlMfyeSj4ET4Lrm2tbWzbG.svg" alt="ex/vi asciicast" class="medium"></a></p>
+<p><a href="https://asciinema.org/a/hvgTlMfyeSj4ET4Lrm2tbWzbG"><img src="https://asciinema.org/a/hvgTlMfyeSj4ET4Lrm2tbWzbG.svg" alt="ex/vi asciicast" class="medium"></a></p>
 <p>Vim was originally released in 1991 as a clone of vi for the Amiga,
 standing for &quot;Vi IMitation&quot;.
 But, as new features were added over time,
@@ -265,7 +264,7 @@ Also, it is really easy to profile.</li>
 which are neatly divided into different modules.</li>
 </ul>
 <p>Here is a quick demo of its usage:</p>
-<video alt="wr demo" class="invert-filter" autoplay muted loop>
+<video alt="wr demo" autoplay muted loop>
   <source src="./assets/reflection-text-editor/wr.webm" type="video/webm">
 </video>
 <p>That being said, there are a few design issues that came up during development.
@@ -351,6 +350,21 @@ so it was impossible.</p>
 	</div>
 	<!-- https://inkscape.org/~fabien.fellay/%E2%98%85chromatic-aberration-rc-cr-demo -->
 <svg height="0" width="0" style="position:fixed">
+	<filter xmlns="http://www.w3.org/2000/svg" style="color-interpolation-filters:sRGB" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:label="Additive Chromatic Aberration" inkscape:menu="Optical Defect" inkscape:menu-tooltip="Decompose the object into RGB additive chromatic aberration" id="filter">
+	  <feOffset dx="-1" dy="0" in="SourceGraphic" result="result1" id="feOffset1019">
+		<animate attributeName="dx" values="-2;-2;4;3;4;4;2;-2;-4;-3;-4;-2;0" begin="0s" dur="15s" repeatCount="indefinite"/>
+		<animate attributeName="dy" values="0; 1; 0; 1" begin="0s" dur="5s" repeatCount="indefinite"/>
+	  </feOffset>
+	  <feOffset dx="0" dy="0" in="SourceGraphic" result="result2" id="feOffset1021"/>
+	  <feOffset dx="0" dy="0" in="SourceGraphic" result="result3" id="feOffset1023"/>
+	  <feColorMatrix in="result1" values="1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 " result="result4" id="feColorMatrix1025"/>
+	  <feColorMatrix in="result2" values="0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 0 " result="result5" id="feColorMatrix1027"/>
+	  <feColorMatrix in="result3" values="0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 " result="result6" id="feColorMatrix1029"/>
+	  <feBlend mode="screen" in="result4" in2="result5" result="result7" id="feBlend1031"/>
+	  <feBlend mode="screen" in="result6" in2="result7" id="feBlend1033"/>
+	</filter>
+</svg>
+<!-- <svg height="0" width="0" style="position:fixed">
 	<filter xmlns="http://www.w3.org/2000/svg" style="color-interpolation-filters:sRGB" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" inkscape:label="Subtractive Chromatic Aberration" inkscape:menu="Optical Defect" inkscape:menu-tooltip="Decompose the object into CMY subtractive chromatic aberration" id="filter">
       <feOffset dx="-1" dy="0" in="SourceGraphic" result="result1" id="feOffset1091">
         <animate attributeName="dx" values="-2;-2;4;3;4;4;2;-2;-4;-3;-4;-2;0" begin="0s" dur="15s" repeatCount="indefinite"/>
@@ -364,7 +378,7 @@ so it was impossible.</p>
       <feBlend mode="multiply" in="result4" in2="result5" result="result7" id="feBlend1103"/>
       <feBlend mode="multiply" in="result6" in2="result7" id="feBlend1105"/>
     </filter>
-</svg>
+</svg> -->
 
 </body>
 

@@ -18,7 +18,7 @@ a command mode, for entering commands,
 and an input mode, for writing the actual text.
 A typical session in ed may look something like this:
 
-[![ed asciicast](https://asciinema.org/a/ElikIvoSsBcUH6cAo8qbgMamG.svg){.medium}](https://asciinema.org/a/ElikIvoSsBcUH6cAo8qbgMamG){.invert-filter}
+[![ed asciicast](https://asciinema.org/a/ElikIvoSsBcUH6cAo8qbgMamG.svg){.medium}](https://asciinema.org/a/ElikIvoSsBcUH6cAo8qbgMamG)
 
 Following this release, in 1976, an extended version of ed was published, called ex.
 One of the key new features it included was a new mode, called visual mode,
@@ -27,7 +27,7 @@ This mode allowed you to get a live preview of the changes you were making,
 improving on the command-line-only interface of ed.
 The modal text editor experience was changing dramatically:
 
-[![ex/vi asciicast](https://asciinema.org/a/hvgTlMfyeSj4ET4Lrm2tbWzbG.svg){.medium}](https://asciinema.org/a/hvgTlMfyeSj4ET4Lrm2tbWzbG){.invert-filter}
+[![ex/vi asciicast](https://asciinema.org/a/hvgTlMfyeSj4ET4Lrm2tbWzbG.svg){.medium}](https://asciinema.org/a/hvgTlMfyeSj4ET4Lrm2tbWzbG)
 
 Vim was originally released in 1991 as a clone of vi for the Amiga,
 standing for "Vi IMitation".
@@ -263,7 +263,7 @@ Here are some of the highlights:
 
 Here is a quick demo of its usage:
 
-<video alt="wr demo" class="invert-filter" autoplay muted loop>
+<video alt="wr demo" autoplay muted loop>
   <source src="./assets/reflection-text-editor/wr.webm" type="video/webm">
 </video>
 

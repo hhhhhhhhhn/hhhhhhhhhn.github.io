@@ -26,7 +26,7 @@ Turns into:
 ### Results
 Running 10000 statements of each kind, 5 times, with 4 different shells, the results are:
 
-![If statement performance graph](./assets/shell-script-optimizations/ifchart.png)
+![If statement performance graph](./assets/shell-script-optimizations/ifchart.png){.invert-filter}
 
 We can see that the difference in most shells is small,
 except for `zsh`,
@@ -59,7 +59,7 @@ grep A /etc/hostname
 ### Results
 **NOTE**: Done only with 1000 iterations.
 
-![Pipe performance graph](./assets/shell-script-optimizations/pipechart.png)
+![Pipe performance graph](./assets/shell-script-optimizations/pipechart.png){.invert-filter}
 
 For all shells the results were quite similar,
 both the `<` operator and the argument method working at similar speeds,
@@ -100,7 +100,7 @@ echo "a b c d e f g h i j k l m n o p q r s t u v w x y z"
 
 ### Results
 
-![Variables performance graph](./assets/shell-script-optimizations/varchart.png)
+![Variables performance graph](./assets/shell-script-optimizations/varchart.png){.invert-filter}
 
 It is definitely the most confusing out of the three graphs.
 The performance hit of not using quotes varies from nothing in `zsh`

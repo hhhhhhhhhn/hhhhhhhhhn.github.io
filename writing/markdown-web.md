@@ -23,7 +23,7 @@ Take dictionaries, as an example.
 Definitions are short and simple.
 What do websites think about it?
 
-![Dictionary websites are too large](./assets/markdown-web/graph1.png)
+![Dictionary websites are too large](./assets/markdown-web/graph1.png){.invert-filter}
 
 These are the sizes for the definition of "circus".
 Notice the white bars.
