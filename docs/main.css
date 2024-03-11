@@ -29,7 +29,7 @@ body {
 }
 
 body.theme-invert {
-	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='15px'><text x='0' y='15' fill='rgb(12,12,12)' font-size='12' font-weight='700'>h</text></svg>");
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='15px'><text x='0' y='15' fill='rgb(9,9,9)' font-size='12' font-weight='700'>h</text></svg>");
 	background-color: #000;
 }
 
