@@ -115,7 +115,7 @@ hr {
 table, tr, td, th {
 	border: 2px solid var(--p-color);
 	border-collapse: collapse;
-	font-size: Calc(0.7 * var(--fsize)) !important;
+	font-size: Calc(1.4 * var(--fsize)) !important;
 	/* table-layout: fixed; */
 	width: 60%;
 	margin-inline: auto;
