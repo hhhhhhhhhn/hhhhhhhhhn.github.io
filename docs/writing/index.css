@@ -177,8 +177,6 @@ a:hover {
 }
 
 .math-inline {
-	margin-top: -0.4em;
-	margin-bottom: -0.1em;
 	display: inline-block;
 	color: var(--ph-color);
 }
