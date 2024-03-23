@@ -1,8 +1,5 @@
-/*@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap'); */
-
 :root {
-	--fsize: Calc(1.2vh + 0.7vw + 20px);
+	--fsize: Calc(0.5 * Calc(1.2vh + 0.7vw + 20px));
 	--p-color: #808080;
 	--ph-color: #a0a0a0; /* Somewhere in between p and h */
 	--h-color: #000000;
@@ -31,10 +28,6 @@ body {
 body.theme-invert {
 	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='20px' width='15px'><text x='0' y='15' fill='rgb(9,9,9)' font-size='12' font-weight='700'>h</text></svg>");
 	background-color: #000;
-}
-
-* {
-	font-size: var(--fsize);
 }
 
 p, a, a:hover, a:visited, ul, ol {

@@ -1,30 +1,29 @@
-import mjApi from "mathjax-node"
-mjApi.start()
+import katex from "katex"
 
-function escapeHTML(str: string) {
-	return str.replace(/&/g, "&amp;")
-		.replace(/</g, "&lt;")
-		.replace(/>/g, "&gt;")
-		.replace(/\//g, "&#47;")
-		.replace(/"/g, "&quot;")
-		.replace(/'/g, "&#39;")
-		.replace(/[*]/g, "&#42;")
-		.replace(/\n/g, " ")
+let asciimath: any = null;
+async function am() {
+	if (!asciimath) {
+		let {AsciiMath} = await import("asciimath-parser")
+		asciimath = new AsciiMath()
+	}
+	return asciimath
 }
 
-export async function renderAsciimath(input: string) {
-	let result = await mjApi.typeset({
-		format: "AsciiMath",
-		svg: true,
-		math: input
-	})
-	let svg: string = result.svg
+// function escapeHTML(str: string) {
+// 	return str.replace(/&/g, "&amp;")
+// 		.replace(/</g, "&lt;")
+// 		.replace(/>/g, "&gt;")
+// 		.replace(/\//g, "&#47;")
+// 		.replace(/"/g, "&quot;")
+// 		.replace(/'/g, "&#39;")
+// 		.replace(/[*]/g, "&#42;")
+// 		.replace(/\n/g, " ")
+// }
 
-	// Adds invisible text on top of the result, for copying and screen readers
-	svg = svg.replace(/<defs.*?>/, '<text text-length="100%" fill="transparent">' + escapeHTML(input) + "</text><defs>")
-	svg = svg.replace(/<title.*?>.*?<\/title>/, "") // The default titles are invalid html. Thanks MathJax.
-	svg = svg.replaceAll("\n", "") // This makes sure that the SVG doesn't get split in different paragraphs
-	return svg
+export async function renderAsciimath(input: string) {
+	let tex = (await am()).toTex(input)
+	let html = katex.renderToString(tex, {trust: true, strict: false})
+	return html
 }
 
 export async function mathPreprocess(input: string): Promise<string> {

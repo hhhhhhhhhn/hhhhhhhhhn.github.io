@@ -3,7 +3,7 @@ body {
 }
 
 h1 {
-	font-size: 2em;
+	font-size: Calc(4*var(--fsize));
 	margin-top: 0;
 }
 
@@ -13,12 +13,16 @@ h1 a {
 }
 
 .project {
-	font-size: 0.7em;
+	font-size: Calc(var(--fsize)*1.4);
 	padding: 2vh;
 	text-align: justify;
 	text-align-last: right;
 	margin-left: 50%;
 	margin-right: 10%;
+}
+
+.project h1 {
+	font-size: Calc(2.8*var(--fsize));
 }
 
 @media(max-aspect-ratio: 1/1) {
