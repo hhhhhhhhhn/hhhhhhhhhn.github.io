@@ -1046,7 +1046,7 @@ For this, we will need the derivative of our error function.
 In this case, the derivative of ReLU is:
 
 ```math
-sigma^'(x) = "ReLU"^'(x) = {(0, "if "x<0),(1, "if " x>0):}
+sigma^'(x) = "ReLU"^'(x) = {0, if x<0; 1, if  x>0 :}
 ```
 
 Now, we can use our formula:
