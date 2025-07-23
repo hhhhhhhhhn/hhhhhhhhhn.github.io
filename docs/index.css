@@ -17,6 +17,13 @@ h1 {
 	z-index: -1;
 }
 
+/* Phones */
+@media(max-aspect-ratio: 1/1) {
+	h1:before {
+		animation-name: none !important;
+	}
+}
+
 h1:before {
 	animation-name: hhh;
 	animation-duration: 0.8s;
