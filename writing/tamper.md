@@ -8,7 +8,7 @@ like having a feed with only the things you *chose* to subscribe to,
 can't be taken for granted anymore,
 as some platforms now include suggested posts in them.
 
-We have, in general, become way more complaisant with platforms catering
+We have, in general, become way more complacent with platforms catering
 every single part of our internet experience,
 in ways that are, more often than not, a net negative to our lives.
 It is likely that you have found yourself scrolling through one of your feeds mindlessly,
